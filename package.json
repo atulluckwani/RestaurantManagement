@@ -1,0 +1,31 @@
+{
+  "name": "restaurantmanagement",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RestaurantManagement Node.js TypeScript project",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "clean": "powershell -NoProfile -Command \"if (Test-Path dist) { Remove-Item dist -Recurse -Force }\""
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.15.3",
+    "tsx": "^4.20.6",
+    "typescript": "^5.8.3"
+  }
+}

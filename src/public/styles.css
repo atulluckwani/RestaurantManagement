@@ -1,0 +1,259 @@
+:root {
+  --bg: #f7f1e5;
+  --ink: #182127;
+  --accent: #bf3b1c;
+  --accent-soft: #ffd7bd;
+  --card: #fffaf2;
+  --line: #e2cfba;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 15% 10%, #ffe7d6 0%, #f7f1e5 45%, #f0e8d9 100%);
+  min-height: 100vh;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  background-image: linear-gradient(0deg, transparent 24%, rgba(24, 33, 39, 0.03) 25%, rgba(24, 33, 39, 0.03) 26%, transparent 27%, transparent 74%, rgba(24, 33, 39, 0.03) 75%, rgba(24, 33, 39, 0.03) 76%, transparent 77%, transparent);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  backdrop-filter: blur(6px);
+  background: rgba(247, 241, 229, 0.85);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 24px;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1,
+h2 {
+  font-family: "Fraunces", serif;
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+nav {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.layout {
+  max-width: 1120px;
+  margin: 20px auto 50px;
+  padding: 0 16px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 16px 40px rgba(24, 33, 39, 0.08);
+}
+
+.subtext,
+.hint {
+  color: #42505a;
+  margin-top: 6px;
+}
+
+.menu-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.menu-group {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: var(--accent-soft);
+  color: #4b1605;
+}
+
+.btn-danger {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  background: #d64545;
+  color: #fff;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 6px;
+}
+
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.total {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.billing {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+textarea,
+input,
+select {
+  font: inherit;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+nav a.active {
+  color: var(--accent);
+}
+
+.one-col {
+  grid-template-columns: 1fr;
+  max-width: 920px;
+}
+
+.success {
+  color: #0f6c3f;
+  font-weight: 600;
+}
+
+.track-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tracking {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  min-height: 60px;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  text-align: left;
+  padding: 6px;
+  vertical-align: top;
+}
+
+.hidden {
+  display: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: rise 0.6s ease forwards;
+}
+
+.reveal:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.reveal:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.reveal:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    position: static;
+  }
+}

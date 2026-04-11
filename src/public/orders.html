@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Orders | Restaurant Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="grain"></div>
+    <header class="topbar">
+      <h1>Restaurant Management</h1>
+      <nav>
+        <a href="/menu.html">Menu</a>
+        <a href="/cart.html">Cart</a>
+        <a href="/orders.html" class="active">My Orders</a>
+        <a href="/manager.html">Manager Access</a>
+      </nav>
+    </header>
+
+    <main class="layout one-col">
+      <section class="panel reveal">
+        <h2>My Orders</h2>
+        <div class="track-row">
+          <input id="trackInput" type="text" placeholder="Enter 5-digit order id" />
+          <button id="trackButton" class="btn-secondary">Track</button>
+        </div>
+        <div id="trackingResult" class="tracking"></div>
+      </section>
+    </main>
+
+    <script src="/shared.js"></script>
+    <script src="/orders.js" defer></script>
+  </body>
+</html>

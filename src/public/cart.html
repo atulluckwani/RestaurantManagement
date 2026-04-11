@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart | Restaurant Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="grain"></div>
+    <header class="topbar">
+      <h1>Restaurant Management</h1>
+      <nav>
+        <a href="/menu.html">Menu</a>
+        <a href="/cart.html" class="active">Cart</a>
+        <a href="/orders.html">My Orders</a>
+        <a href="/manager.html">Manager Access</a>
+      </nav>
+    </header>
+
+    <main class="layout one-col">
+      <section class="panel reveal">
+        <h2>Cart</h2>
+        <ul id="cartList" class="list"></ul>
+        <p class="total">Total: Rs <span id="cartTotal">0</span></p>
+        <button id="billingToggle" class="btn-primary">Proceed to billing</button>
+
+        <form id="billingForm" class="billing hidden">
+          <label for="flatHomeDetails">Flat/Home Details</label>
+          <input id="flatHomeDetails" type="text" required />
+
+          <label for="area">Area</label>
+          <input id="area" type="text" required />
+
+          <label for="landmark">Landmark</label>
+          <input id="landmark" type="text" required />
+
+          <label for="pinCode">Pin code</label>
+          <input id="pinCode" type="text" pattern="[0-9]{6}" maxlength="6" required />
+
+          <label for="city">City</label>
+          <input id="city" type="text" required />
+
+          <label for="state">State</label>
+          <select id="state" required></select>
+
+          <button type="submit" class="btn-primary">Place order</button>
+        </form>
+
+        <p id="orderPlacedInfo" class="success"></p>
+      </section>
+    </main>
+
+    <script src="/shared.js"></script>
+    <script src="/cart.js" defer></script>
+  </body>
+</html>

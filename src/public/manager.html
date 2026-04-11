@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manager Access | Restaurant Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="grain"></div>
+    <header class="topbar">
+      <h1>Restaurant Management</h1>
+      <nav>
+        <a href="/menu.html">Menu</a>
+        <a href="/cart.html">Cart</a>
+        <a href="/orders.html">My Orders</a>
+        <a href="/manager.html" class="active">Manager Access</a>
+      </nav>
+    </header>
+
+    <main class="layout one-col">
+      <section class="panel reveal">
+        <h2>Manager Access</h2>
+        <form id="managerLoginForm" class="track-row">
+          <input id="managerUsername" type="text" placeholder="Username" required />
+          <input id="managerPassword" type="password" placeholder="Password" required />
+          <button type="submit" class="btn-secondary">Login</button>
+        </form>
+        <p id="managerStatus"></p>
+
+        <div id="managerTableWrapper" class="hidden">
+          <button id="managerRefresh" class="btn-secondary">Refresh orders</button>
+          <button id="managerLogout" class="btn-secondary">Logout</button>
+          <table>
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Address</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Placed At</th>
+              </tr>
+            </thead>
+            <tbody id="managerOrdersBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/shared.js"></script>
+    <script src="/manager.js" defer></script>
+  </body>
+</html>

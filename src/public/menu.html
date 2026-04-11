@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu | Restaurant Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="grain"></div>
+    <header class="topbar">
+      <h1>Restaurant Management</h1>
+      <nav>
+        <a href="/menu.html" class="active">Menu</a>
+        <a href="/cart.html">Cart</a>
+        <a href="/orders.html">My Orders</a>
+        <a href="/manager.html">Manager Access</a>
+      </nav>
+    </header>
+
+    <main class="layout one-col">
+      <section class="panel reveal">
+        <h2>Menu</h2>
+        <p class="subtext">North Indian, South Indian, and Chinese specialties.</p>
+        <p id="menuInfo" class="success"></p>
+        <div id="menuContainer" class="menu-grid">
+          <div class="menu-group">
+            <h3>North Indian</h3>
+            <div class="menu-item">
+              <div><strong>Butter Chicken</strong><br /><small>Price: Rs 320</small></div>
+              <button class="btn-primary" data-item-id="ni-1">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Paneer Tikka</strong><br /><small>Price: Rs 260</small></div>
+              <button class="btn-primary" data-item-id="ni-2">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Dal Makhani</strong><br /><small>Price: Rs 220</small></div>
+              <button class="btn-primary" data-item-id="ni-3">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Naan Basket</strong><br /><small>Price: Rs 140</small></div>
+              <button class="btn-primary" data-item-id="ni-4">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Chole Bhature</strong><br /><small>Price: Rs 200</small></div>
+              <button class="btn-primary" data-item-id="ni-5">Add to cart</button>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <h3>South Indian</h3>
+            <div class="menu-item">
+              <div><strong>Masala Dosa</strong><br /><small>Price: Rs 180</small></div>
+              <button class="btn-primary" data-item-id="si-1">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Idli Sambar</strong><br /><small>Price: Rs 140</small></div>
+              <button class="btn-primary" data-item-id="si-2">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Medu Vada</strong><br /><small>Price: Rs 150</small></div>
+              <button class="btn-primary" data-item-id="si-3">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Lemon Rice</strong><br /><small>Price: Rs 170</small></div>
+              <button class="btn-primary" data-item-id="si-4">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Curd Rice</strong><br /><small>Price: Rs 130</small></div>
+              <button class="btn-primary" data-item-id="si-5">Add to cart</button>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <h3>Chinese</h3>
+            <div class="menu-item">
+              <div><strong>Veg Hakka Noodles</strong><br /><small>Price: Rs 210</small></div>
+              <button class="btn-primary" data-item-id="ch-1">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Chilli Paneer</strong><br /><small>Price: Rs 250</small></div>
+              <button class="btn-primary" data-item-id="ch-2">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Schezwan Fried Rice</strong><br /><small>Price: Rs 230</small></div>
+              <button class="btn-primary" data-item-id="ch-3">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Spring Rolls</strong><br /><small>Price: Rs 190</small></div>
+              <button class="btn-primary" data-item-id="ch-4">Add to cart</button>
+            </div>
+            <div class="menu-item">
+              <div><strong>Manchurian Gravy</strong><br /><small>Price: Rs 240</small></div>
+              <button class="btn-primary" data-item-id="ch-5">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/shared.js"></script>
+    <script src="/menu.js" defer></script>
+  </body>
+</html>

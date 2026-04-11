@@ -105,8 +105,9 @@
       }
     ],
     "totalPrice": 140,
-    "status": "In process",
-    "createdAt": "2026-04-11T02:46:59.576Z"
+    "status": "Delivered",
+    "createdAt": "2026-04-11T02:46:59.576Z",
+    "deliveredAt": "2026-04-11T10:18:47.609Z"
   },
   {
     "orderId": "72350",
@@ -128,8 +129,9 @@
       }
     ],
     "totalPrice": 170,
-    "status": "In process",
-    "createdAt": "2026-04-11T02:49:08.910Z"
+    "status": "Delivered",
+    "createdAt": "2026-04-11T02:49:08.910Z",
+    "deliveredAt": "2026-04-11T10:18:47.609Z"
   },
   {
     "orderId": "39825",
@@ -151,7 +153,8 @@
       }
     ],
     "totalPrice": 190,
-    "status": "In process",
-    "createdAt": "2026-04-11T03:14:55.247Z"
+    "status": "Delivered",
+    "createdAt": "2026-04-11T03:14:55.247Z",
+    "deliveredAt": "2026-04-11T10:18:47.609Z"
   }
 ]

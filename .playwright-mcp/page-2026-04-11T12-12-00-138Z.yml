@@ -1,0 +1,418 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - button "Accept all cookies" [ref=e6] [cursor=pointer]
+        - button "Decline all cookies" [ref=e7] [cursor=pointer]
+        - button "Customize" [ref=e8] [cursor=pointer]
+        - link "Privacy policy" [ref=e9] [cursor=pointer]:
+          - /url: /en/privacy
+      - paragraph [ref=e11]:
+        - text: Our website uses cookies to enhance your online experience by; measuring audience engagement, analyzing how our webpage is used, improving website functionality, and delivering relevant, personalized marketing content.
+        - text: Your privacy is important to us. Thus, you have full control over your cookie preferences and can manage which ones to enable. You can find more information about cookies in our
+        - link "Cookie Policy" [ref=e12] [cursor=pointer]:
+          - /url: /en/privacy/cookies-and-other-tracking-technologies
+        - text: ", about the types of cookies we use on"
+        - link "Atos Cookie Table" [ref=e13] [cursor=pointer]:
+          - /url: /wp-content/uploads/2024/09/atos-cookie-overview-table.pdf
+        - text: ", and information on how to withdraw your consent in our"
+        - link "Privacy Policy" [ref=e14] [cursor=pointer]:
+          - /url: /en/privacy
+        - text: .
+    - dialog "Managing your cookies":
+      - generic [ref=e16]:
+        - heading "Managing your cookies" [level=2] [ref=e18]
+        - button "Close popup" [ref=e20]: X
+        - paragraph [ref=e22]: Our website uses cookies. You have full control over what you want to activate. You can accept the cookies by clicking on the “Accept all cookies” button or customize your choices by selecting the cookies you want to activate. You can also decline all non-necessary cookies by clicking on the “Decline all cookies” button.
+        - generic [ref=e23]:
+          - button "Accept all cookies" [ref=e24] [cursor=pointer]
+          - button "Decline all cookies" [ref=e25] [cursor=pointer]
+        - generic [ref=e26]:
+          - switch "Toggle Neccesary" [checked] [disabled] [ref=e27] [cursor=pointer]:
+            - generic [ref=e28]: Toggle Neccesary
+          - heading "Necessary cookies" [level=2] [ref=e29]
+          - paragraph [ref=e30]:
+            - text: These are essential for the user navigation and allow to give access to certain functionalities such as secured zones accesses. Without these cookies, it won’t be possible to provide the service.
+            - link "Matomo privacy policy" [ref=e31] [cursor=pointer]:
+              - /url: https://matomo.org/privacy-policy/
+        - generic [ref=e32]:
+          - switch "Toggle Marketing" [ref=e33] [cursor=pointer]:
+            - generic [ref=e34]: Toggle Marketing
+          - heading "Marketing cookies" [level=2] [ref=e35]
+          - paragraph [ref=e36]:
+            - text: These cookies are used to deliver advertisements more relevant for you, limit the number of times you see an advertisement; help measure the effectiveness of the advertising campaign; and understand people’s behavior after they view an advertisement.
+            - link "Adobe Experience Cloud Marketo" [ref=e37] [cursor=pointer]:
+              - /url: https://www.adobe.com/legal.html
+        - generic [ref=e38]:
+          - switch "Toggle Social Media" [ref=e39] [cursor=pointer]:
+            - generic [ref=e40]: Toggle Social Media
+          - heading "Social media cookies" [level=2] [ref=e41]
+          - paragraph [ref=e42]:
+            - text: These cookies are used to measure the effectiveness of social media campaigns.
+            - link "LinkedIn Policy" [ref=e43] [cursor=pointer]:
+              - /url: https://www.linkedin.com/legal/privacy-policy
+        - button "Accept selected cookies" [ref=e45] [cursor=pointer]
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - button "Accept all cookies" [ref=e49] [cursor=pointer]
+        - button "Decline all cookies" [ref=e50] [cursor=pointer]
+      - paragraph [ref=e52]:
+        - text: Our website uses cookies to enhance your online experience by; measuring audience engagement, analyzing how our webpage is used, improving website functionality, and delivering relevant, personalized marketing content. Your privacy is important to us. Thus, you have full control over your cookie preferences and can manage which ones to enable. You can find more information about cookies in our
+        - link "Cookie Policy" [ref=e53] [cursor=pointer]:
+          - /url: /en/privacy/cookies-and-other-tracking-technologies
+        - text: ", about the types of cookies we use on"
+        - link "Atos Cookie Table" [ref=e54] [cursor=pointer]:
+          - /url: /wp-content/uploads/2024/09/atos-cookie-overview-table.pdf
+        - text: ", and information on how to withdraw your consent in our"
+        - link "Privacy Policy" [ref=e55] [cursor=pointer]:
+          - /url: /en/privacy
+        - text: .
+  - link "Skip to main content" [ref=e56] [cursor=pointer]:
+    - /url: "#content"
+  - navigation "Top menu" [ref=e60]:
+    - list [ref=e61]:
+      - listitem [ref=e62]:
+        - link "Contact us" [ref=e63] [cursor=pointer]:
+          - /url: /en/contact-us
+    - list [ref=e64]:
+      - listitem [ref=e65]:
+        - button "Global, switch region" [ref=e66] [cursor=pointer]: Global
+      - listitem [ref=e67]: EN
+      - listitem [ref=e68]:
+        - link "Switch to french translation" [ref=e69] [cursor=pointer]:
+          - /url: https://atos.net/fr
+          - text: FR
+  - navigation "Main menu" [ref=e73]:
+    - link "Atos homepage" [ref=e74] [cursor=pointer]:
+      - /url: /en/
+      - img [ref=e75]
+      - paragraph [ref=e76]: Atos homepage
+    - generic [ref=e77]:
+      - list [ref=e78]:
+        - listitem [ref=e79]:
+          - button "Services" [ref=e80] [cursor=pointer]
+        - listitem [ref=e81]:
+          - button "Industries" [ref=e82] [cursor=pointer]
+        - listitem [ref=e83]:
+          - button "Insights" [ref=e84] [cursor=pointer]
+        - listitem [ref=e85]:
+          - button "About us" [ref=e86] [cursor=pointer]
+        - listitem [ref=e87]:
+          - link "Join us" [ref=e88] [cursor=pointer]:
+            - /url: https://atos.net/en/join-us
+        - listitem [ref=e89]:
+          - link "Eviden" [ref=e90] [cursor=pointer]:
+            - /url: https://eviden.com/
+      - button "Site Search" [ref=e91] [cursor=pointer]
+    - button [ref=e92] [cursor=pointer]:
+      - img [ref=e93]
+  - main [ref=e94]:
+    - generic:
+      - generic:
+        - generic: /
+    - article [ref=e96]:
+      - region "Atos home slider with Atos Group anouncement" [ref=e100]:
+        - generic [ref=e104]:
+          - generic [ref=e123]:
+            - generic [ref=e124]:
+              - note [ref=e125]: Atos Agentic AI Week
+              - generic [ref=e128]:
+                - generic [ref=e132]:
+                  - heading "Atos Agentic AI Week" [level=1] [ref=e134]
+                  - 'heading "Join our experts and partners for a four‑day series on the vision and real‑world initiatives driving the next era of AI‑powered services. Date: April 20-24, 2026" [level=2] [ref=e136]':
+                    - text: Join our experts and partners for a four‑day series on the vision and real‑world initiatives driving the next era of AI‑powered services.
+                    - text: "Date: April 20-24, 2026"
+                  - link "Explore the sessions >" [ref=e139] [cursor=pointer]:
+                    - /url: https://atos.net/en/events/agentic-ai-week-2026
+                    - generic [ref=e141]: Explore the sessions >
+                - link " Pause" [ref=e144] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e145]:
+                    - generic [ref=e146]: 
+                    - generic [ref=e147]: Pause
+                - generic: 
+            - generic [ref=e148]:
+              - note [ref=e149]: TRC
+              - generic [ref=e156]:
+                - heading [level=1] [ref=e158]: "Atos Threat Research Center (TRC): Turn intelligence into impact"
+                - heading [level=2] [ref=e160]: Actionable insights | Proactive cyber defense
+                - link [ref=e163] [cursor=pointer]:
+                  - /url: https://atos.net/en/lp/atos-threat-research-center
+                  - generic [ref=e165]: Learn more >
+            - generic [ref=e166]:
+              - note [ref=e167]: Google Cloud Next 2026
+              - generic [ref=e174]:
+                - heading [level=1] [ref=e176]: Google Cloud Next 2026
+                - heading [level=2] [ref=e178]: Join us at Google Cloud Next in Las Vegas to explore how enterprises modernize data foundations and scale AI with confidence. April 22-24, 2026 | Booth# 2711
+                - link [ref=e181] [cursor=pointer]:
+                  - /url: https://atos.net/en/lp/google-cloud-next-2026
+                  - generic [ref=e183]: Book a meeting >
+            - generic [ref=e184]:
+              - note [ref=e185]: Lilly
+              - generic [ref=e188]:
+                - generic [ref=e192]:
+                  - heading [level=1] [ref=e194]: "Lilly: An AI‑powered agent at enterprise scale"
+                  - heading [level=2] [ref=e196]: Cutting response times from 24 hours to 2 minutes with 99% accuracy. Now scaling from 7 live solutions to 50+ enterprise use cases.
+                  - link [ref=e199] [cursor=pointer]:
+                    - /url: https://atos.net/en/client-stories/lilly-the-ai-powered-agent
+                    - generic [ref=e201]: Read the story >
+                - link [ref=e204] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e205]:
+                    - generic [ref=e206]: 
+                    - generic [ref=e207]: Pause
+                - text: 
+          - button "previous arrow" [ref=e208] [cursor=pointer]:
+            - img "previous arrow" [ref=e209]
+          - button "next arrow" [ref=e210] [cursor=pointer]:
+            - img "next arrow" [ref=e211]
+          - group "Choose slide to display." [ref=e212]
+      - navigation "Page contents" [ref=e215]:
+        - generic [ref=e216]:
+          - generic [ref=e217]:
+            - group "1 / 5" [ref=e218] [cursor=pointer]:
+              - link "Introducing Atos" [ref=e219]:
+                - /url: javascript:;
+            - group "2 / 5" [ref=e220] [cursor=pointer]:
+              - link "News" [ref=e221]:
+                - /url: javascript:;
+            - group "3 / 5" [ref=e222] [cursor=pointer]:
+              - link "Ideas and frontiers" [ref=e223]:
+                - /url: javascript:;
+            - group "4 / 5" [ref=e224] [cursor=pointer]:
+              - link "Making the difference" [ref=e225]:
+                - /url: javascript:;
+            - group "5 / 5" [ref=e226] [cursor=pointer]:
+              - link "Careers" [ref=e227]:
+                - /url: javascript:;
+          - generic:
+            - button "Previous slide (only for visual purpose, links already available just before)" [disabled] [ref=e228] [cursor=pointer]:
+              - img [ref=e229]
+            - button "Next slide (only for visual purpose, links already available just before)" [ref=e232] [cursor=pointer]:
+              - img [ref=e233]
+      - generic [ref=e238]:
+        - heading "Accelerating Intelligence" [level=2] [ref=e241]
+        - generic [ref=e242]:
+          - generic [ref=e247]:
+            - paragraph [ref=e248]: At Atos, we accelerate intelligence to help shape a responsible, secure and AI-powered digital future. By bringing together human, collective and artificial intelligence, we empower transformation–with speed, relevance and impact.
+            - paragraph [ref=e249]: From mission-critical environments to sovereign cloud, cybersecurity and AI-driven services, we meet clients where they are and take them where they need to go.
+            - paragraph [ref=e250]: Our technologies are seamless, secure, and built with sustainability at their core. With innovation and intelligence embedded in everything we do, we help our clients, our people and society move forward with confidence in a world that never stops.
+            - paragraph [ref=e251]: Together, we’re accelerating intelligence for a better digital future.
+          - button "Play Atos - Your Global AI-powered Digital Partner" [ref=e256] [cursor=pointer]
+      - generic [ref=e260]:
+        - heading "Latest news" [level=2] [ref=e263]
+        - generic [ref=e264]:
+          - generic [ref=e265]:
+            - group "1 / 6" [ref=e266]:
+              - link "Apr 8, 2026 Press release Atos drives Alsea’s SAP modernization with a strategic migration to SAP RISE on AWS" [ref=e267] [cursor=pointer]:
+                - generic [ref=e268]:
+                  - generic [ref=e269]: Apr 8, 2026
+                  - list [ref=e270]:
+                    - listitem [ref=e271]: Press release
+                  - heading "Atos drives Alsea’s SAP modernization with a strategic migration to SAP RISE on AWS" [level=2] [ref=e272]
+            - group "2 / 6" [ref=e273]:
+              - link "Apr 7, 2026 Press release Atos Positioned as a Leader in the ISG Provider Lens™ for Intelligent Automation Services, Europe" [ref=e274] [cursor=pointer]:
+                - generic [ref=e275]:
+                  - generic [ref=e276]: Apr 7, 2026
+                  - list [ref=e277]:
+                    - listitem [ref=e278]: Press release
+                  - heading "Atos Positioned as a Leader in the ISG Provider Lens™ for Intelligent Automation Services, Europe" [level=2] [ref=e279]
+            - group "3 / 6" [ref=e280]:
+              - link "Mar 31, 2026 Press release Atos Group completes the sale of Bull, its Advanced Computing activities, to the French State" [ref=e281] [cursor=pointer]:
+                - generic [ref=e282]:
+                  - generic [ref=e283]: Mar 31, 2026
+                  - list [ref=e284]:
+                    - listitem [ref=e285]: Press release
+                  - heading "Atos Group completes the sale of Bull, its Advanced Computing activities, to the French State" [level=2] [ref=e286]
+            - group "4 / 6" [ref=e287]:
+              - link "Mar 31, 2026 Press release Atos Unveils its Threat Research Center" [ref=e288] [cursor=pointer]:
+                - generic [ref=e289]:
+                  - generic [ref=e290]: Mar 31, 2026
+                  - list [ref=e291]:
+                    - listitem [ref=e292]: Press release
+                  - heading "Atos Unveils its Threat Research Center" [level=2] [ref=e293]
+            - group "5 / 6" [ref=e294]:
+              - link "Mar 27, 2026 Press release Notice of the Annual General Meeting to Approve the 2025 Financial Statements, Scheduled for May 22, 2026, and Changes to the Atos Board of Directors" [ref=e295] [cursor=pointer]:
+                - generic [ref=e296]:
+                  - generic [ref=e297]: Mar 27, 2026
+                  - list [ref=e298]:
+                    - listitem [ref=e299]: Press release
+                  - heading "Notice of the Annual General Meeting to Approve the 2025 Financial Statements, Scheduled for May 22, 2026, and Changes to the Atos Board of Directors" [level=2] [ref=e300]
+            - group "6 / 6" [ref=e301]:
+              - link "Mar 20, 2026 Press release Atos Unveils its Leading-Edge Services to CONMEBOL at the CONMEBOL Libertadores and CONMEBOL Sudamericana Competition Draws" [ref=e302] [cursor=pointer]:
+                - generic [ref=e303]:
+                  - generic [ref=e304]: Mar 20, 2026
+                  - list [ref=e305]:
+                    - listitem [ref=e306]: Press release
+                  - heading "Atos Unveils its Leading-Edge Services to CONMEBOL at the CONMEBOL Libertadores and CONMEBOL Sudamericana Competition Draws" [level=2] [ref=e307]
+          - generic [ref=e308]:
+            - button "Go to slide 1" [ref=e309] [cursor=pointer]
+            - button "Go to slide 2" [ref=e310] [cursor=pointer]
+        - link "View all press releases & news >" [ref=e311] [cursor=pointer]:
+          - /url: https://atos.net/en/newsroom
+      - generic [ref=e314]:
+        - heading "Ideas and frontiers" [level=2] [ref=e317]
+        - generic [ref=e322]:
+          - generic [ref=e323]:
+            - group "1 / 6" [ref=e324]:
+              - generic [ref=e327]:
+                - generic [ref=e328]: Apr 9, 2026
+                - heading "Unlocking value with AI-driven conversational analytics in the financial services and insurance industry" [level=3] [ref=e329]
+                - link "Read more - Unlocking value with AI-driven conversational analytics in the financial services and insurance industry" [ref=e330] [cursor=pointer]:
+                  - /url: https://atos.net/en/blog/unlocking-value-with-ai-driven-conversational-analytics
+                  - img [ref=e331]
+            - group "2 / 6" [ref=e333]:
+              - generic [ref=e336]:
+                - generic [ref=e337]: Apr 1, 2026
+                - 'heading "Process optimization: The often missed foundation of successful automation" [level=3] [ref=e338]'
+                - 'link "Read more - Process optimization: The often missed foundation of successful automation" [ref=e339] [cursor=pointer]':
+                  - /url: https://atos.net/en/blog/process-optimization-the-often-missed-foundation-of-successful-automation
+                  - img [ref=e340]
+            - group "3 / 6" [ref=e342]:
+              - generic [ref=e345]:
+                - generic [ref=e346]: Mar 27, 2026
+                - heading "Stabilizing quality in manufacturing with lean PLM and AI agents" [level=3] [ref=e347]
+                - link "Read more - Stabilizing quality in manufacturing with lean PLM and AI agents" [ref=e348] [cursor=pointer]:
+                  - /url: https://atos.net/en/blog/stabilizing-quality-in-manufacturing-with-lean-plm-and-ai-agents
+                  - img [ref=e349]
+            - group "4 / 6" [ref=e351]:
+              - generic [ref=e354]:
+                - generic [ref=e355]: Mar 25, 2026
+                - 'heading "Sovereignty by design: Building resilient enterprises in a connected world" [level=3] [ref=e356]'
+                - 'link "Read more - Sovereignty by design: Building resilient enterprises in a connected world" [ref=e357] [cursor=pointer]':
+                  - /url: https://atos.net/en/blog/sovereignty-by-design-building-resilient-enterprises-in-a-connected-world
+                  - img [ref=e358]
+            - group "5 / 6" [ref=e360]:
+              - generic [ref=e363]:
+                - generic [ref=e364]: Mar 23, 2026
+                - heading "Future-proofing the broadcast industry" [level=3] [ref=e365]
+                - link "Read more - Future-proofing the broadcast industry" [ref=e366] [cursor=pointer]:
+                  - /url: https://atos.net/en/blog/future-proofing-the-broadcast-industry
+                  - img [ref=e367]
+            - group "6 / 6" [ref=e369]:
+              - generic [ref=e372]:
+                - generic [ref=e373]: Mar 16, 2026
+                - 'heading "Winning with digital core systems: Tips for navigating the direct insurance revolution" [level=3] [ref=e374]'
+                - 'link "Read more - Winning with digital core systems: Tips for navigating the direct insurance revolution" [ref=e375] [cursor=pointer]':
+                  - /url: https://atos.net/en/blog/winning-with-digital-core-systems-tips-for-navigating-the-direct-insurance-revolution
+                  - img [ref=e376]
+          - generic [ref=e378]:
+            - button "Go to slide 1" [ref=e379] [cursor=pointer]
+            - button "Go to slide 2" [ref=e380] [cursor=pointer]
+            - button "Go to slide 3" [ref=e381] [cursor=pointer]
+        - paragraph [ref=e388]:
+          - link "Dive deeper >" [ref=e389] [cursor=pointer]:
+            - /url: https://atos.net/en/blog
+      - generic [ref=e395]:
+        - heading "Client success" [level=2] [ref=e398]
+        - region "Client Stories Carousel" [ref=e399]:
+          - generic [ref=e403]:
+            - generic [ref=e432]:
+              - generic [ref=e433]:
+                - note [ref=e434]: UEFA
+                - generic [ref=e441]:
+                  - heading "UEFA EURO 2024™" [level=3] [ref=e443]
+                  - heading "An unforgettable digital experience" [level=4] [ref=e445]
+                  - paragraph [ref=e449]: We successfully delivered key IT services and applications to support the UEFA EURO 2024™, inviting hundreds of millions of fans worldwide to share the electrifying experience of one of the most iconic football tournaments.
+                  - link "Read more >" [ref=e452] [cursor=pointer]:
+                    - /url: https://atos.net/en/client-stories/uefa-euro-2024
+                    - generic [ref=e454]: Read more >
+              - generic [ref=e455]:
+                - note [ref=e456]: CPI
+                - generic [ref=e463]:
+                  - heading [level=3] [ref=e465]: CPI
+                  - heading [level=4] [ref=e467]: Driving sustainable pharma manufacturing with an intuitive dashboard
+                  - paragraph [ref=e471]: ‘Being supported by a digital partner like Atos is really helping us to examine energy use so we can continue to tackle the pharma industry’s Grand Challenges in a more sustainable way.’ Martin Keane, Head of Digital Innovation, CPI
+                  - link [ref=e474] [cursor=pointer]:
+                    - /url: https://atos.net/en/client-stories/putting-sustainability-at-the-heart-of-pharmaceutical-manufacturing
+                    - generic [ref=e476]: Read more >
+              - generic [ref=e477]:
+                - note [ref=e478]: Paris 2024
+                - generic [ref=e485]:
+                  - heading [level=3] [ref=e487]: Paris 2024
+                  - heading [level=4] [ref=e489]: Securing the Paris 2024 Olympic and Paralympic Games
+                  - paragraph [ref=e493]: As athletes faced off in healthy competition at the Olympic and Paralympic Games Paris 2024, our cybersecurity experts were working tirelessly behind the scenes, providing crucial protection at every digital surface for seamless global transmission and delivery
+                  - link [ref=e496] [cursor=pointer]:
+                    - /url: https://atos.net/en/client-stories/securing-the-olympic-and-paralympic-games-paris-2024
+                    - generic [ref=e498]: Read more >
+              - generic [ref=e499]:
+                - note [ref=e500]: Satair
+                - generic [ref=e507]:
+                  - heading [level=3] [ref=e509]: Satair
+                  - heading [level=4] [ref=e511]: The AI-Powered Agent
+                  - paragraph [ref=e515]: What began as a single AI agent evolved into the driver of enterprise-wide AI transformation, reducing quotation processing from 24 hours to 2 minutes with 99% accuracy. Its success led to an AI Centre of Excellence, scaling seven solutions and identifying 50+ use cases to boost productivity and customer experience.
+                  - link [ref=e518] [cursor=pointer]:
+                    - /url: https://atos.net/en/client-stories/lilly-the-ai-powered-agent
+                    - generic [ref=e520]: Read more >
+              - generic [ref=e521]:
+                - note [ref=e522]: Defra
+                - generic [ref=e529]:
+                  - heading [level=3] [ref=e531]: Defra
+                  - heading [level=4] [ref=e533]: Sustainable Digital Workplace at Scale
+                  - paragraph [ref=e537]: Together with Defra, we helped revolutionize end-user services for 30,000 employees using analytics, automation, refurbished devices and remanufactured laptops for an inclusive, proactive and eco-friendly digital workplace.
+                  - link [ref=e540] [cursor=pointer]:
+                    - /url: https://atos.net/en/client-stories/transforming-defras-digital-workplace-with-sustainable-it-solutions
+                    - generic [ref=e542]: Read more >
+              - generic [ref=e543]:
+                - note [ref=e544]: National Grid
+                - generic [ref=e551]:
+                  - heading [level=3] [ref=e553]: National Grid
+                  - heading [level=4] [ref=e555]: Unlocking the power of data
+                  - paragraph [ref=e559]: We helped transform National Grid’s infrastructure planning with Triton – a digital twin that cut backlog time by 53%, accelerated reviews by 76%, reduced costs and enabled faster, data-driven decarbonization.
+                  - link [ref=e562] [cursor=pointer]:
+                    - /url: https://atos.net/en/client-stories/unlocking-the-power-of-data-with-project-triton
+                    - generic [ref=e564]: Read more >
+            - button "previous arrow" [ref=e565] [cursor=pointer]:
+              - img "previous arrow" [ref=e566]
+            - button "next arrow" [ref=e567] [cursor=pointer]:
+              - img "next arrow" [ref=e568]
+            - group "Choose slide to display." [ref=e569]
+        - paragraph [ref=e576]:
+          - link "Explore our client stories >" [ref=e577] [cursor=pointer]:
+            - /url: https://atos.net/en/client-stories
+      - generic [ref=e582]:
+        - paragraph [ref=e586]
+        - generic [ref=e589]:
+          - heading "Work with us" [level=2] [ref=e590]
+          - paragraph [ref=e591]:
+            - link "Atos Careers >" [ref=e592] [cursor=pointer]:
+              - /url: https://atos.net/en/join-us
+  - contentinfo [ref=e595]:
+    - list [ref=e597]:
+      - listitem [ref=e598]:
+        - link "Follow us on Linked-in" [ref=e599] [cursor=pointer]:
+          - /url: http://www.linkedin.com/company/atos
+          - img "Follow us on Linked-in" [ref=e600]
+      - listitem [ref=e601]:
+        - link "Follow us on X" [ref=e602] [cursor=pointer]:
+          - /url: http://www.twitter.com/atos
+          - img "Follow us on X" [ref=e603]
+      - listitem [ref=e604]:
+        - link "Follow us on Facebook" [ref=e605] [cursor=pointer]:
+          - /url: https://www.facebook.com/Atos
+          - img "Follow us on Facebook" [ref=e606]
+      - listitem [ref=e607]:
+        - link "Follow us on Instagram" [ref=e608] [cursor=pointer]:
+          - /url: https://www.instagram.com/atosinside/
+          - img "Follow us on Instagram" [ref=e609]
+      - listitem [ref=e610]:
+        - link "Follow us on Youtube" [ref=e611] [cursor=pointer]:
+          - /url: https://www.youtube.com/user/Atos
+          - img "Follow us on Youtube" [ref=e612]
+    - list [ref=e614]:
+      - listitem [ref=e615]:
+        - link "Homepage" [ref=e616] [cursor=pointer]:
+          - /url: https://atos.net/en/
+      - listitem [ref=e617]:
+        - link "Accessibility Statement" [ref=e618] [cursor=pointer]:
+          - /url: https://atos.net/en/accessibility-statement
+      - listitem [ref=e619]:
+        - link "Terms of use" [ref=e620] [cursor=pointer]:
+          - /url: https://atos.net/en/terms-and-conditions
+      - listitem [ref=e621]:
+        - link "Integrity Line" [ref=e622] [cursor=pointer]:
+          - /url: https://atos.integrityline.app/
+      - listitem [ref=e623]:
+        - link "Privacy" [ref=e624] [cursor=pointer]:
+          - /url: https://atos.net/en/privacy
+      - listitem [ref=e625]: © Atos SE 2026 all rights reserved

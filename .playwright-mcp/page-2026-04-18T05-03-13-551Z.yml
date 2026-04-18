@@ -1,0 +1,27 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - heading "Restaurant Management" [level=1] [ref=e3]
+    - navigation [ref=e4]:
+      - link "Menu" [ref=e5] [cursor=pointer]:
+        - /url: /menu.html
+      - link "Cart (2)" [ref=e6] [cursor=pointer]:
+        - /url: /cart.html
+      - link "My Orders" [ref=e7] [cursor=pointer]:
+        - /url: /orders.html
+      - link "Manager Access" [ref=e8] [cursor=pointer]:
+        - /url: /manager.html
+  - main [ref=e9]:
+    - generic [ref=e10]:
+      - heading "My Orders" [level=2] [ref=e11]
+      - generic [ref=e12]:
+        - textbox "Enter 5-digit order id" [ref=e13]: "90479"
+        - button "Track" [active] [ref=e14] [cursor=pointer]
+      - generic [ref=e15]:
+        - strong [ref=e16]: "Order:"
+        - text: "90479"
+        - strong [ref=e17]: "Status:"
+        - text: Delivered
+        - strong [ref=e18]: "Total:"
+        - text: Rs 320
+        - strong [ref=e19]: "Address:"
+        - text: 6, sdafd, dsfds, Pune - 411000, Maharashtra

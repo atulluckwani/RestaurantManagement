@@ -1,8 +1,12 @@
 const { chromium } = require('playwright');
+const path = require('path');
 
 (async () => {
   // Step 1: Open URL in Edge (non-headless) and verify page is loaded.
-  const browser = await chromium.launch({ headless: false, channel: 'msedge' });
+  const browser = await chromium.launch({
+    headless: false,
+    ...(process.env.CI === 'true' ? {} : { channel: 'msedge' }),
+  });
   const page = await browser.newPage();
 
   try {
@@ -34,7 +38,7 @@ const { chromium } = require('playwright');
     const itemRow = page.locator('.menu-item').nth(randomIndex);
     const itemName = (await itemRow.locator('strong').innerText()).trim();
 
-    const messageArea = page.locator('.message-area p');
+    const messageArea = page.locator('#menuInfo');
     const previousMessage = ((await messageArea.textContent()) || '').trim();
 
     await addToCartButtons.nth(randomIndex).click();
@@ -56,7 +60,7 @@ const { chromium } = require('playwright');
         const text = el?.textContent?.trim() || '';
         return text.length > 0 && text !== oldText;
       },
-      { selector: '.message-area p', oldText: previousMessage },
+      { selector: '#menuInfo', oldText: previousMessage },
       { timeout: 10000 }
     );
 
@@ -79,7 +83,9 @@ const { chromium } = require('playwright');
     console.log(`Step 3 passed: success message verified -> ${successMessage}`);
 
     // Step 4: Take full page screenshot.
-    const screenshotPath = 'tests/UI-TC-04_full_page.png';
+    const screenshotDir = process.env.SCREENSHOT_DIR || 'tests';
+    const timestamp = process.env.SCREENSHOT_TIMESTAMP || String(Date.now());
+    const screenshotPath = path.join(screenshotDir, `UI-TC-04_full_page_${timestamp}.png`);
     await page.screenshot({ path: screenshotPath, fullPage: true });
     console.log(`Step 4 passed: full-page screenshot saved at ${screenshotPath}`);
 

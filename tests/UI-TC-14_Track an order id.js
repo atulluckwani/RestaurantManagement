@@ -1,9 +1,10 @@
 const { chromium } = require('playwright');
+const path = require('path');
 
 (async () => {
   const browser = await chromium.launch({
     headless: false,
-    channel: 'msedge'
+    ...(process.env.CI === 'true' ? {} : { channel: 'msedge' }),
   });
 
   const page = await browser.newPage();
@@ -32,10 +33,10 @@ const { chromium } = require('playwright');
     await page.getByRole('button', { name: 'Track' }).click();
 
     // Verify tracked order details.
-    const detailsPanel = page.locator('main .card, main > div > div').last();
+    const detailsPanel = page.locator('#trackingResult');
     await detailsPanel.waitFor({ state: 'visible', timeout: 10000 });
 
-    const detailsText = (await page.locator('main').innerText()).replace(/\s+/g, ' ').trim();
+    const detailsText = (await detailsPanel.innerText()).replace(/\s+/g, ' ').trim();
 
     if (!detailsText.includes(`Order: ${orderId}`)) {
       throw new Error(`Order value mismatch. Expected: ${orderId}. Actual content: ${detailsText}`);
@@ -60,6 +61,13 @@ const { chromium } = require('playwright');
     console.log('Status: Delivered');
     console.log(`Total format: ${totalMatch[0]}`);
     console.log(`Address: ${addressMatch[1].trim()}`);
+
+    // Take full page screenshot.
+    const screenshotDir = process.env.SCREENSHOT_DIR || '.';
+    const timestamp = process.env.SCREENSHOT_TIMESTAMP || String(Date.now());
+    const screenshotPath = path.join(screenshotDir, `UI-TC-14_track_order_${timestamp}.png`);
+    await page.screenshot({ path: screenshotPath, fullPage: true });
+    console.log(`Screenshot saved at ${screenshotPath}`);
   } catch (error) {
     console.error('UI-TC-14 failed:', error.message || error);
     process.exitCode = 1;

@@ -1,0 +1,41 @@
+meta {
+  name: Orders - POST /api/orders unknown item
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/api/orders
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "address": {
+      "flatHomeDetails": "221B MG Road",
+      "area": "Indiranagar",
+      "landmark": "Near Metro",
+      "pinCode": "560038",
+      "city": "Bengaluru",
+      "state": "Karnataka"
+    },
+    "items": [
+      {
+        "itemId": "invalid-item",
+        "quantity": 1
+      }
+    ]
+  }
+}
+
+tests {
+  test("status should be 400", function() {
+    expect(res.getStatus()).to.equal(400);
+  });
+
+  test("error message should include unknown item", function() {
+    const body = res.getBody();
+    expect(body.message).to.equal("Unknown item id: invalid-item");
+  });
+}

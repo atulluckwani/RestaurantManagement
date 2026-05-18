@@ -1,0 +1,22 @@
+meta {
+  name: Tasks - DELETE /api/tasks/:id not found
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/api/tasks/00000000-0000-0000-0000-000000000001
+  body: none
+  auth: none
+}
+
+tests {
+  test("status should be 404", function() {
+    expect(res.getStatus()).to.equal(404);
+  });
+
+  test("error message should match", function() {
+    const body = res.getBody();
+    expect(body.message).to.equal("Task not found");
+  });
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Orders - GET /api/orders/:orderId not found
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/api/orders/99999
+  body: none
+  auth: none
+}
+
+tests {
+  test("status should be 404", function() {
+    expect(res.getStatus()).to.equal(404);
+  });
+
+  test("error message should match", function() {
+    const body = res.getBody();
+    expect(body.message).to.equal("Order not found");
+  });
+}

@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "9c3980e4-0eed-4f4a-a42e-25c769a95269",
+    "title": "Sample task",
+    "completed": false,
+    "createdAt": "2026-04-26T11:13:09.671Z"
+  },
+  {
+    "id": "4bfa2982-ba5f-4837-a5f6-ea30dd821310",
+    "title": "Temp task for invalid update",
+    "completed": false,
+    "createdAt": "2026-05-18T08:39:03.907Z"
+  }
+]

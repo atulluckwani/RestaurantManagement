@@ -1,0 +1,32 @@
+meta {
+  name: Tasks - POST /api/tasks valid
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/tasks
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Bruno task - positive",
+    "completed": false
+  }
+}
+
+tests {
+  test("status should be 201", function() {
+    expect(res.getStatus()).to.equal(201);
+  });
+
+  test("response should include created task", function() {
+    const body = res.getBody();
+    expect(body.id).to.be.a("string");
+    expect(body.title).to.equal("Bruno task - positive");
+    expect(body.completed).to.equal(false);
+    bru.setVar("taskId", body.id);
+  });
+}

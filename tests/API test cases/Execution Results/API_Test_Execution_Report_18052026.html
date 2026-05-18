@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestaurantManagement - API Test Execution Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .summary-card h3 {
+            font-size: 0.9em;
+            font-weight: 600;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .summary-card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .status-pass {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .status-fail {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .test-group {
+            margin-bottom: 25px;
+        }
+
+        .test-group-title {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .test-case {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .test-case.pass {
+            border-left-color: #38ef7d;
+            background: #f0fdf4;
+        }
+
+        .test-case.fail {
+            border-left-color: #f45c43;
+            background: #fdf0f0;
+        }
+
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+
+        .test-name {
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+        }
+
+        .test-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .test-status.pass {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .test-status.fail {
+            background: #fee2e2;
+            color: #7f1d1d;
+        }
+
+        .test-details {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .test-details p {
+            margin: 5px 0;
+        }
+
+        .endpoint {
+            background: #e3f2fd;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin: 5px 0;
+            color: #1976d2;
+        }
+
+        .status-code {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+
+        .status-400 {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-401 {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-404 {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .status-201 {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-200 {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .test-assertions {
+            background: white;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .assertion {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+
+        .assertion.pass::before {
+            content: "✓ ";
+            color: #38ef7d;
+            font-weight: bold;
+        }
+
+        .assertion.fail::before {
+            content: "✗ ";
+            color: #f45c43;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #ddd;
+        }
+
+        .execution-info {
+            background: #e8eaf6;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .execution-info p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .negative-summary {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .negative-summary h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .negative-summary p {
+            color: #856404;
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+            .test-header {
+                flex-direction: column;
+            }
+
+            .test-status {
+                margin-top: 10px;
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 API Test Execution Report</h1>
+            <p>RestaurantManagement API - Bruno CLI Test Suite</p>
+        </div>
+
+        <div class="content">
+            <div class="execution-info">
+                <p><strong>Execution Date:</strong> May 18, 2026</p>
+                <p><strong>Test Framework:</strong> Bruno CLI (v1.0+)</p>
+                <p><strong>Environment:</strong> Local (http://localhost:3000)</p>
+                <p><strong>Total Duration:</strong> 4,003 ms</p>
+            </div>
+
+            <div class="summary">
+                <div class="summary-card status-pass">
+                    <h3>Overall Status</h3>
+                    <div class="value">✓ PASS</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Total Tests</h3>
+                    <div class="value">27</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Tests Passed</h3>
+                    <div class="value">27</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Tests Failed</h3>
+                    <div class="value">0</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Negative Test Cases</h2>
+                
+                <div class="negative-summary">
+                    <h3>📊 Negative Test Summary</h3>
+                    <p><strong>Total Negative Tests:</strong> 14</p>
+                    <p><strong>Passed:</strong> 14 ✓</p>
+                    <p><strong>Failed:</strong> 0</p>
+                    <p><strong>Success Rate:</strong> 100%</p>
+                </div>
+
+                <div class="test-group">
+                    <div class="test-group-title">Tasks API - Negative Cases (5 tests)</div>
+                    
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">POST /api/tasks - Missing Title</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 01_Tasks_CreateMissingTitle_400</p>
+                            <div class="endpoint">POST http://localhost:3000/api/tasks</div>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-400">400 Bad Request</span></p>
+                            <p><strong>Response Time:</strong> 105 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 400</div>
+                            <div class="assertion pass">error message should match "title is required"</div>
+                        </div>
+                    </div>
+
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">PUT /api/tasks/:id - Not Found</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 02_Tasks_UpdateNotFound_404</p>
+                            <div class="endpoint">PUT http://localhost:3000/api/tasks/00000000-0000-0000-0000-000000000000</div>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-404">404 Not Found</span></p>
+                            <p><strong>Response Time:</strong> 6 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 404</div>
+                            <div class="assertion pass">error message should match "Task not found"</div>
+                        </div>
+                    </div>
+
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">PUT /api/tasks/:id - Invalid Title</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 04_Tasks_UpdateInvalidTitle_400</p>
+                            <div class="endpoint">PUT http://localhost:3000/api/tasks/{taskId}</div>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-400">400 Bad Request</span></p>
+                            <p><strong>Response Time:</strong> 11 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 400</div>
+                            <div class="assertion pass">error message should match "title must be a non-empty string"</div>
+                        </div>
+                    </div>
+
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">DELETE /api/tasks/:id - Not Found</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 05_Tasks_DeleteNotFound_404</p>
+                            <div class="endpoint">DELETE http://localhost:3000/api/tasks/00000000-0000-0000-0000-000000000001</div>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-404">404 Not Found</span></p>
+                            <p><strong>Response Time:</strong> 5 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 404</div>
+                            <div class="assertion pass">error message should match "Task not found"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-group">
+                    <div class="test-group-title">Orders API - Negative Cases (5 tests)</div>
+                    
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">POST /api/orders - Invalid Address</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 06_Orders_CreateInvalidAddress_400</p>
+                            <div class="endpoint">POST http://localhost:3000/api/orders</div>
+                            <p><strong>Validation:</strong> Empty flatHomeDetails, invalid pinCode, invalid state</p>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-400">400 Bad Request</span></p>
+                            <p><strong>Response Time:</strong> 6 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 400</div>
+                            <div class="assertion pass">error message should match "Valid delivery address is required"</div>
+                        </div>
+                    </div>
+
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">POST /api/orders - Empty Items</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 07_Orders_CreateEmptyItems_400</p>
+                            <div class="endpoint">POST http://localhost:3000/api/orders</div>
+                            <p><strong>Validation:</strong> Empty items array</p>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-400">400 Bad Request</span></p>
+                            <p><strong>Response Time:</strong> 4 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 400</div>
+                            <div class="assertion pass">error message should match "At least one cart item is required"</div>
+                        </div>
+                    </div>
+
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">POST /api/orders - Unknown Item</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 08_Orders_CreateUnknownItem_400</p>
+                            <div class="endpoint">POST http://localhost:3000/api/orders</div>
+                            <p><strong>Validation:</strong> Invalid itemId that doesn't exist in menu</p>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-400">400 Bad Request</span></p>
+                            <p><strong>Response Time:</strong> 4 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 400</div>
+                            <div class="assertion pass">error message should include "Unknown item id: invalid-item"</div>
+                        </div>
+                    </div>
+
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">POST /api/orders - Invalid Quantity</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 09_Orders_CreateInvalidQuantity_400</p>
+                            <div class="endpoint">POST http://localhost:3000/api/orders</div>
+                            <p><strong>Validation:</strong> Quantity is 0 (must be > 0)</p>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-400">400 Bad Request</span></p>
+                            <p><strong>Response Time:</strong> 7 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 400</div>
+                            <div class="assertion pass">error message should include "Invalid quantity for ni-1"</div>
+                        </div>
+                    </div>
+
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">GET /api/orders/:orderId - Not Found</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 10_Orders_TrackNotFound_404</p>
+                            <div class="endpoint">GET http://localhost:3000/api/orders/99999</div>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-404">404 Not Found</span></p>
+                            <p><strong>Response Time:</strong> 9 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 404</div>
+                            <div class="assertion pass">error message should match "Order not found"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-group">
+                    <div class="test-group-title">Manager API - Negative Cases (4 tests)</div>
+                    
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">POST /api/manager/login - Invalid Credentials</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 11_Manager_LoginInvalid_401</p>
+                            <div class="endpoint">POST http://localhost:3000/api/manager/login</div>
+                            <p><strong>Validation:</strong> Wrong password (Admin / WrongPassword)</p>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-401">401 Unauthorized</span></p>
+                            <p><strong>Response Time:</strong> 3 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 401</div>
+                            <div class="assertion pass">error message should match "Invalid credentials"</div>
+                        </div>
+                    </div>
+
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">GET /api/manager/orders - Unauthorized</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 13_Manager_OrdersUnauthorized_401</p>
+                            <div class="endpoint">GET http://localhost:3000/api/manager/orders</div>
+                            <p><strong>Validation:</strong> No valid manager session token</p>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-401">401 Unauthorized</span></p>
+                            <p><strong>Response Time:</strong> 10 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 401</div>
+                            <div class="assertion pass">error message should match "Unauthorized manager access"</div>
+                        </div>
+                    </div>
+
+                    <div class="test-case pass">
+                        <div class="test-header">
+                            <div class="test-name">GET /api/manager/session - Inactive Session</div>
+                            <span class="test-status pass">✓ PASS</span>
+                        </div>
+                        <div class="test-details">
+                            <p><strong>Test ID:</strong> 14_Manager_SessionInactive_200</p>
+                            <div class="endpoint">GET http://localhost:3000/api/manager/session</div>
+                            <p><strong>Validation:</strong> No active session after logout</p>
+                            <p><strong>Expected Status:</strong> <span class="status-code status-200">200 OK</span></p>
+                            <p><strong>Response Time:</strong> 7 ms</p>
+                        </div>
+                        <div class="test-assertions">
+                            <div class="assertion pass">status should be 200</div>
+                            <div class="assertion pass">session should be inactive (active: false)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Key Findings</h2>
+                
+                <div style="background: #f0fdf4; padding: 20px; border-radius: 8px; border-left: 4px solid #38ef7d;">
+                    <h3 style="color: #065f46; margin-bottom: 15px;">✓ All Negative Test Cases Passed</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 8px 0; color: #166534;"><strong>✓ Input Validation:</strong> All malformed inputs (empty strings, invalid formats, out-of-range values) are correctly rejected with 400 status codes</li>
+                        <li style="margin: 8px 0; color: #166534;"><strong>✓ Resource Not Found:</strong> All requests for non-existent resources return proper 404 responses</li>
+                        <li style="margin: 8px 0; color: #166534;"><strong>✓ Authentication & Authorization:</strong> Unauthorized access attempts are properly blocked with 401 status codes</li>
+                        <li style="margin: 8px 0; color: #166534;"><strong>✓ Error Messages:</strong> All error responses include meaningful, descriptive error messages</li>
+                        <li style="margin: 8px 0; color: #166534;"><strong>✓ API Stability:</strong> All tests completed successfully with no timeout or connection errors</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Test Coverage Summary</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea;">
+                        <h4 style="color: #667eea; margin-bottom: 10px;">Tasks API</h4>
+                        <p style="color: #666; font-size: 0.95em;">
+                            <strong>Negative Cases:</strong> 4<br>
+                            • Missing required fields<br>
+                            • Invalid data types<br>
+                            • Non-existent resources<br>
+                            • Constraint violations
+                        </p>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea;">
+                        <h4 style="color: #667eea; margin-bottom: 10px;">Orders API</h4>
+                        <p style="color: #666; font-size: 0.95em;">
+                            <strong>Negative Cases:</strong> 5<br>
+                            • Invalid address format<br>
+                            • Empty item lists<br>
+                            • Invalid item references<br>
+                            • Quantity constraints<br>
+                            • Order not found
+                        </p>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea;">
+                        <h4 style="color: #667eea; margin-bottom: 10px;">Manager API</h4>
+                        <p style="color: #666; font-size: 0.95em;">
+                            <strong>Negative Cases:</strong> 4<br>
+                            • Invalid credentials<br>
+                            • Missing authentication<br>
+                            • Authorization failures<br>
+                            • Session state validation
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Execution Environment</h2>
+                
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea; font-family: 'Courier New', monospace; font-size: 0.9em;">
+                    <p><strong>Base URL:</strong> http://localhost:3000</p>
+                    <p><strong>Test Framework:</strong> Bruno CLI (@usebruno/cli)</p>
+                    <p><strong>Environment File:</strong> tests/API test cases/environments/Local.bru</p>
+                    <p><strong>Collection Path:</strong> tests/API test cases/</p>
+                    <p><strong>Total Requests Executed:</strong> 27 (14 Negative + 13 Positive)</p>
+                    <p><strong>Total Test Assertions:</strong> 53</p>
+                    <p><strong>Execution Time:</strong> 4,003 ms (4.003 seconds)</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">How to Run Tests from VS Code</h2>
+                
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea;">
+                    <h4 style="color: #667eea; margin-bottom: 10px;">Using Bruno CLI (Terminal)</h4>
+                    <div style="background: white; padding: 10px; border-radius: 4px; margin: 10px 0; font-family: 'Courier New', monospace; font-size: 0.9em; overflow-x: auto;">
+                        # Run only negative tests
+                        <br>cd "tests\API test cases"
+                        <br>npx @usebruno/cli run Negative -r --env Local
+                    </div>
+                    
+                    <h4 style="color: #667eea; margin-bottom: 10px; margin-top: 20px;">Run All Tests (Positive + Negative)</h4>
+                    <div style="background: white; padding: 10px; border-radius: 4px; margin: 10px 0; font-family: 'Courier New', monospace; font-size: 0.9em; overflow-x: auto;">
+                        cd "tests\API test cases"
+                        <br>npx @usebruno/cli run . -r --env Local
+                    </div>
+
+                    <h4 style="color: #667eea; margin-bottom: 10px; margin-top: 20px;">Using Bruno GUI Extension</h4>
+                    <p style="color: #666; margin: 5px 0;">1. Open VS Code</p>
+                    <p style="color: #666; margin: 5px 0;">2. Install Bruno extension (if not already installed)</p>
+                    <p style="color: #666; margin: 5px 0;">3. Open collection: tests/API test cases</p>
+                    <p style="color: #666; margin: 5px 0;">4. Select environment: Local</p>
+                    <p style="color: #666; margin: 5px 0;">5. Right-click on Negative folder → Run</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Report Generated:</strong> May 18, 2026 | <strong>Test Suite:</strong> RestaurantManagement API | <strong>Status:</strong> ✓ ALL TESTS PASSED</p>
+            <p>For more information, refer to [tests/API test cases/README.md](tests/API test cases/README.md)</p>
+        </div>
+    </div>
+</body>
+</html>

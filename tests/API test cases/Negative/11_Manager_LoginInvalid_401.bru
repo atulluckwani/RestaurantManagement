@@ -1,0 +1,29 @@
+meta {
+  name: Manager - POST /api/manager/login invalid
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/api/manager/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "Admin",
+    "password": "WrongPassword"
+  }
+}
+
+tests {
+  test("status should be 401", function() {
+    expect(res.getStatus()).to.equal(401);
+  });
+
+  test("error message should match", function() {
+    const body = res.getBody();
+    expect(body.message).to.equal("Invalid credentials");
+  });
+}

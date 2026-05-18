@@ -1,0 +1,1972 @@
+[
+  {
+    "iterationIndex": 0,
+    "results": [
+      {
+        "test": {
+          "filename": "Negative\\01_Tasks_CreateMissingTitle_400.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/tasks",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"completed\": false\n}"
+        },
+        "response": {
+          "status": 400,
+          "statusText": "Bad Request",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "31",
+            "etag": "W/\"1f-sJ1jmW/d2H93Wvqi9hOTGI+U9ws\"",
+            "date": "Mon, 18 May 2026 08:39:03 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "title is required"
+          },
+          "url": "http://localhost/api/tasks",
+          "responseTime": 105,
+          "duration": 105,
+          "size": 31
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 400",
+            "status": "pass",
+            "uid": "fWeItgJlowsd3lzWe9RB_"
+          },
+          {
+            "description": "error message should match",
+            "status": "pass",
+            "uid": "MWqleH5hWsBtPJzBqGumE"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.4068748,
+        "name": "Tasks - POST /api/tasks missing title",
+        "path": "Negative\\01_Tasks_CreateMissingTitle_400",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\02_Tasks_UpdateNotFound_404.bru"
+        },
+        "request": {
+          "method": "PUT",
+          "url": "http://localhost:3000/api/tasks/00000000-0000-0000-0000-000000000000",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"title\": \"Does not matter\",\n  \"completed\": true\n}"
+        },
+        "response": {
+          "status": 404,
+          "statusText": "Not Found",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "28",
+            "etag": "W/\"1c-MHDSHEeakQ3QeijgQMEHeol2HWg\"",
+            "date": "Mon, 18 May 2026 08:39:03 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "Task not found"
+          },
+          "url": "http://localhost/api/tasks/00000000-0000-0000-0000-000000000000",
+          "responseTime": 6,
+          "duration": 6,
+          "size": 28
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 404",
+            "status": "pass",
+            "uid": "LDH5TbpQVT_bDzktTeyVd"
+          },
+          {
+            "description": "error message should match",
+            "status": "pass",
+            "uid": "gNWKUkxF6H0QLLRDIF-cL"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1175493,
+        "name": "Tasks - PUT /api/tasks/:id not found",
+        "path": "Negative\\02_Tasks_UpdateNotFound_404",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\03_Tasks_CreateForInvalidUpdate.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/tasks",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"title\": \"Temp task for invalid update\",\n  \"completed\": false\n}"
+        },
+        "response": {
+          "status": 201,
+          "statusText": "Created",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "141",
+            "etag": "W/\"8d-qN5C+/qwA21YlkKh3ZCg0Sz89BI\"",
+            "date": "Mon, 18 May 2026 08:39:03 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "id": "4bfa2982-ba5f-4837-a5f6-ea30dd821310",
+            "title": "Temp task for invalid update",
+            "completed": false,
+            "createdAt": "2026-05-18T08:39:03.907Z"
+          },
+          "url": "http://localhost/api/tasks",
+          "responseTime": 11,
+          "duration": 11,
+          "size": 141
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 201",
+            "status": "pass",
+            "uid": "8iFptXPPky2bnP57bfza3"
+          },
+          {
+            "description": "capture temporary task id",
+            "status": "pass",
+            "uid": "WzA522YN1jxV6ngiqQX3A"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1039469,
+        "name": "Tasks - create task for invalid update check",
+        "path": "Negative\\03_Tasks_CreateForInvalidUpdate",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\04_Tasks_UpdateInvalidTitle_400.bru"
+        },
+        "request": {
+          "method": "PUT",
+          "url": "http://localhost:3000/api/tasks/4bfa2982-ba5f-4837-a5f6-ea30dd821310",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"title\": \"\",\n  \"completed\": true\n}"
+        },
+        "response": {
+          "status": 400,
+          "statusText": "Bad Request",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "46",
+            "etag": "W/\"2e-KAlwVjywWtIAQQV1tnPqkJboRLY\"",
+            "date": "Mon, 18 May 2026 08:39:04 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "title must be a non-empty string"
+          },
+          "url": "http://localhost/api/tasks/4bfa2982-ba5f-4837-a5f6-ea30dd821310",
+          "responseTime": 11,
+          "duration": 11,
+          "size": 46
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 400",
+            "status": "pass",
+            "uid": "pMUspLILdH9wRiIEjfySv"
+          },
+          {
+            "description": "error message should match",
+            "status": "pass",
+            "uid": "-p1zsaYMjgLRuPY0VyixI"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1748608,
+        "name": "Tasks - PUT /api/tasks/:id invalid title",
+        "path": "Negative\\04_Tasks_UpdateInvalidTitle_400",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\05_Tasks_DeleteNotFound_404.bru"
+        },
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:3000/api/tasks/00000000-0000-0000-0000-000000000001",
+          "headers": {
+            "content-type": null
+          }
+        },
+        "response": {
+          "status": 404,
+          "statusText": "Not Found",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "28",
+            "etag": "W/\"1c-MHDSHEeakQ3QeijgQMEHeol2HWg\"",
+            "date": "Mon, 18 May 2026 08:39:04 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "Task not found"
+          },
+          "url": "http://localhost/api/tasks/00000000-0000-0000-0000-000000000001",
+          "responseTime": 5,
+          "duration": 5,
+          "size": 28
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 404",
+            "status": "pass",
+            "uid": "M3BDUDjwsoyNszz7jTy7k"
+          },
+          {
+            "description": "error message should match",
+            "status": "pass",
+            "uid": "sNeUX8kk44VqvlNoj4frN"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1214769,
+        "name": "Tasks - DELETE /api/tasks/:id not found",
+        "path": "Negative\\05_Tasks_DeleteNotFound_404",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\06_Orders_CreateInvalidAddress_400.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/orders",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"address\": {\n    \"flatHomeDetails\": \"\",\n    \"area\": \"Indiranagar\",\n    \"landmark\": \"Near Metro\",\n    \"pinCode\": \"123\",\n    \"city\": \"Bengaluru\",\n    \"state\": \"InvalidState\"\n  },\n  \"items\": [\n    {\n      \"itemId\": \"ni-1\",\n      \"quantity\": 1\n    }\n  ]\n}"
+        },
+        "response": {
+          "status": 400,
+          "statusText": "Bad Request",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "48",
+            "etag": "W/\"30-Hy1tF+SoINhkYdxCfdB6/xAhHyA\"",
+            "date": "Mon, 18 May 2026 08:39:04 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "Valid delivery address is required"
+          },
+          "url": "http://localhost/api/orders",
+          "responseTime": 6,
+          "duration": 6,
+          "size": 48
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 400",
+            "status": "pass",
+            "uid": "UxTZE2fEcuf4vQmGmGdaT"
+          },
+          {
+            "description": "error message should match",
+            "status": "pass",
+            "uid": "NCbuqdo1x44ct_KmCNTQm"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.0960187,
+        "name": "Orders - POST /api/orders invalid address",
+        "path": "Negative\\06_Orders_CreateInvalidAddress_400",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\07_Orders_CreateEmptyItems_400.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/orders",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"address\": {\n    \"flatHomeDetails\": \"221B MG Road\",\n    \"area\": \"Indiranagar\",\n    \"landmark\": \"Near Metro\",\n    \"pinCode\": \"560038\",\n    \"city\": \"Bengaluru\",\n    \"state\": \"Karnataka\"\n  },\n  \"items\": []\n}"
+        },
+        "response": {
+          "status": 400,
+          "statusText": "Bad Request",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "48",
+            "etag": "W/\"30-7UEtLXDYj23N3+9opHHp133o2y0\"",
+            "date": "Mon, 18 May 2026 08:39:04 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "At least one cart item is required"
+          },
+          "url": "http://localhost/api/orders",
+          "responseTime": 4,
+          "duration": 4,
+          "size": 48
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 400",
+            "status": "pass",
+            "uid": "BKT9HqCLHBWBA6skEedIr"
+          },
+          {
+            "description": "error message should match",
+            "status": "pass",
+            "uid": "D5xHs6LlcicxU3ZKLJtx8"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1023712,
+        "name": "Orders - POST /api/orders empty items",
+        "path": "Negative\\07_Orders_CreateEmptyItems_400",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\08_Orders_CreateUnknownItem_400.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/orders",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"address\": {\n    \"flatHomeDetails\": \"221B MG Road\",\n    \"area\": \"Indiranagar\",\n    \"landmark\": \"Near Metro\",\n    \"pinCode\": \"560038\",\n    \"city\": \"Bengaluru\",\n    \"state\": \"Karnataka\"\n  },\n  \"items\": [\n    {\n      \"itemId\": \"invalid-item\",\n      \"quantity\": 1\n    }\n  ]\n}"
+        },
+        "response": {
+          "status": 400,
+          "statusText": "Bad Request",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "43",
+            "etag": "W/\"2b-M55+rKwReqHN41ye+xKw8YzRkyU\"",
+            "date": "Mon, 18 May 2026 08:39:04 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "Unknown item id: invalid-item"
+          },
+          "url": "http://localhost/api/orders",
+          "responseTime": 4,
+          "duration": 4,
+          "size": 43
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 400",
+            "status": "pass",
+            "uid": "qJ4ju7Sg4t-szQKsJU-pI"
+          },
+          {
+            "description": "error message should include unknown item",
+            "status": "pass",
+            "uid": "7OqRq0YlhdnCd7PN4xInQ"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1075402,
+        "name": "Orders - POST /api/orders unknown item",
+        "path": "Negative\\08_Orders_CreateUnknownItem_400",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\09_Orders_CreateInvalidQuantity_400.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/orders",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"address\": {\n    \"flatHomeDetails\": \"221B MG Road\",\n    \"area\": \"Indiranagar\",\n    \"landmark\": \"Near Metro\",\n    \"pinCode\": \"560038\",\n    \"city\": \"Bengaluru\",\n    \"state\": \"Karnataka\"\n  },\n  \"items\": [\n    {\n      \"itemId\": \"ni-1\",\n      \"quantity\": 0\n    }\n  ]\n}"
+        },
+        "response": {
+          "status": 400,
+          "statusText": "Bad Request",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "39",
+            "etag": "W/\"27-bITfSUt0ToxHJs+H4DN+rkzbjhE\"",
+            "date": "Mon, 18 May 2026 08:39:04 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "Invalid quantity for ni-1"
+          },
+          "url": "http://localhost/api/orders",
+          "responseTime": 7,
+          "duration": 7,
+          "size": 39
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 400",
+            "status": "pass",
+            "uid": "cbzpdEXOsmRr0GOiWJwBe"
+          },
+          {
+            "description": "error message should include invalid quantity",
+            "status": "pass",
+            "uid": "cwQcoyxSBkBtUI7VuG5z5"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1808853,
+        "name": "Orders - POST /api/orders invalid quantity",
+        "path": "Negative\\09_Orders_CreateInvalidQuantity_400",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\10_Orders_TrackNotFound_404.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:3000/api/orders/99999",
+          "headers": {
+            "content-type": null
+          }
+        },
+        "response": {
+          "status": 404,
+          "statusText": "Not Found",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "29",
+            "etag": "W/\"1d-fZXiF03Bm+R1qrG0y4tL2TyWwOk\"",
+            "date": "Mon, 18 May 2026 08:39:04 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "Order not found"
+          },
+          "url": "http://localhost/api/orders/99999",
+          "responseTime": 9,
+          "duration": 9,
+          "size": 29
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 404",
+            "status": "pass",
+            "uid": "RHfXY96pF-SoPP_luUzMi"
+          },
+          {
+            "description": "error message should match",
+            "status": "pass",
+            "uid": "ZQ7tXio_0uPnHTFu-N_Wn"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1143727,
+        "name": "Orders - GET /api/orders/:orderId not found",
+        "path": "Negative\\10_Orders_TrackNotFound_404",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\11_Manager_LoginInvalid_401.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/manager/login",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"username\": \"Admin\",\n  \"password\": \"WrongPassword\"\n}"
+        },
+        "response": {
+          "status": 401,
+          "statusText": "Unauthorized",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "33",
+            "etag": "W/\"21-dBEoW0UmTF+EGUMaprEp9/8zNNA\"",
+            "date": "Mon, 18 May 2026 08:39:04 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "Invalid credentials"
+          },
+          "url": "http://localhost/api/manager/login",
+          "responseTime": 3,
+          "duration": 3,
+          "size": 33
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 401",
+            "status": "pass",
+            "uid": "meUa73Nb3PCtnfNDM4zUy"
+          },
+          {
+            "description": "error message should match",
+            "status": "pass",
+            "uid": "6bFQtfgZRatn732MGTA6q"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1028148,
+        "name": "Manager - POST /api/manager/login invalid",
+        "path": "Negative\\11_Manager_LoginInvalid_401",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\12_Manager_ForceLogout.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/manager/logout",
+          "headers": {
+            "content-type": null
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "set-cookie": [
+              "managerToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+            ],
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "24",
+            "etag": "W/\"18-ez3HU6ztP+x97ArcQd0fxpuaOt0\"",
+            "date": "Mon, 18 May 2026 08:39:05 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "Logged out"
+          },
+          "url": "http://localhost/api/manager/logout",
+          "responseTime": 12,
+          "duration": 12,
+          "size": 24
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "S11FTeu1nSUNcBHbcbiHd"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1426136,
+        "name": "Manager - POST /api/manager/logout cleanup",
+        "path": "Negative\\12_Manager_ForceLogout",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\13_Manager_OrdersUnauthorized_401.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:3000/api/manager/orders",
+          "headers": {
+            "content-type": null
+          }
+        },
+        "response": {
+          "status": 401,
+          "statusText": "Unauthorized",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "41",
+            "etag": "W/\"29-gjX9mXfejjPXVZrOr4IklYnLAgQ\"",
+            "date": "Mon, 18 May 2026 08:39:05 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "Unauthorized manager access"
+          },
+          "url": "http://localhost/api/manager/orders",
+          "responseTime": 10,
+          "duration": 10,
+          "size": 41
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 401",
+            "status": "pass",
+            "uid": "iIUYPfH_shS8EcPETag5U"
+          },
+          {
+            "description": "error message should match",
+            "status": "pass",
+            "uid": "TKKBDW5C86uXHnkRerBAJ"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.2095895,
+        "name": "Manager - GET /api/manager/orders unauthorized",
+        "path": "Negative\\13_Manager_OrdersUnauthorized_401",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Negative\\14_Manager_SessionInactive_200.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:3000/api/manager/session",
+          "headers": {
+            "content-type": null
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "16",
+            "etag": "W/\"10-iZ1Wee3XJp8Edii8tnDHQrctT0c\"",
+            "date": "Mon, 18 May 2026 08:39:05 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "active": false
+          },
+          "url": "http://localhost/api/manager/session",
+          "responseTime": 7,
+          "duration": 7,
+          "size": 16
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "iA-AMVDGirPek7vBYDyWq"
+          },
+          {
+            "description": "session should be inactive",
+            "status": "pass",
+            "uid": "EEM6CmBUhPc-mVmlXpzfC"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.2099338,
+        "name": "Manager - GET /api/manager/session inactive",
+        "path": "Negative\\14_Manager_SessionInactive_200",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\01_Health_GetApi.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:3000/api",
+          "headers": {
+            "content-type": null
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "53",
+            "etag": "W/\"35-NLLfy3H1H6zEsW9JYxdSHw5urN0\"",
+            "date": "Mon, 18 May 2026 08:39:05 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "status": "ok",
+            "message": "Restaurant API is running"
+          },
+          "url": "http://localhost/api",
+          "responseTime": 9,
+          "duration": 9,
+          "size": 53
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "SJzy7kwTTT9SxOWuyJN0i"
+          },
+          {
+            "description": "response should contain health fields",
+            "status": "pass",
+            "uid": "bAG3saPRtgDyCBO-2HR49"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1888858,
+        "name": "Health - GET /api",
+        "path": "Postive\\01_Health_GetApi",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\02_Tasks_CreateValid.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/tasks",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"title\": \"Bruno task - positive\",\n  \"completed\": false\n}"
+        },
+        "response": {
+          "status": 201,
+          "statusText": "Created",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "134",
+            "etag": "W/\"86-k35MZYzA2IUS0g+cLwCGeASrjpM\"",
+            "date": "Mon, 18 May 2026 08:39:05 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "id": "47346fb7-6211-47c2-9998-1737a5c1eb21",
+            "title": "Bruno task - positive",
+            "completed": false,
+            "createdAt": "2026-05-18T08:39:05.771Z"
+          },
+          "url": "http://localhost/api/tasks",
+          "responseTime": 11,
+          "duration": 11,
+          "size": 134
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 201",
+            "status": "pass",
+            "uid": "MZ5jFtzNaagRbGFT7HT1S"
+          },
+          {
+            "description": "response should include created task",
+            "status": "pass",
+            "uid": "qoNHhDPe8o-WfO68xgjW5"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1809418,
+        "name": "Tasks - POST /api/tasks valid",
+        "path": "Postive\\02_Tasks_CreateValid",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\03_Tasks_GetAll.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:3000/api/tasks",
+          "headers": {
+            "content-type": null
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "403",
+            "etag": "W/\"193-JrUchtSKHpsfHeSMnBP0OTI4oEc\"",
+            "date": "Mon, 18 May 2026 08:39:05 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": [
+            {
+              "id": "9c3980e4-0eed-4f4a-a42e-25c769a95269",
+              "title": "Sample task",
+              "completed": false,
+              "createdAt": "2026-04-26T11:13:09.671Z"
+            },
+            {
+              "id": "4bfa2982-ba5f-4837-a5f6-ea30dd821310",
+              "title": "Temp task for invalid update",
+              "completed": false,
+              "createdAt": "2026-05-18T08:39:03.907Z"
+            },
+            {
+              "id": "47346fb7-6211-47c2-9998-1737a5c1eb21",
+              "title": "Bruno task - positive",
+              "completed": false,
+              "createdAt": "2026-05-18T08:39:05.771Z"
+            }
+          ],
+          "url": "http://localhost/api/tasks",
+          "responseTime": 8,
+          "duration": 8,
+          "size": 403
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "cNsvDuK9R6zMvtkR8DXlr"
+          },
+          {
+            "description": "response should be an array",
+            "status": "pass",
+            "uid": "YZSYlqYPeBQ0J5DNabYsB"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.181043,
+        "name": "Tasks - GET /api/tasks",
+        "path": "Postive\\03_Tasks_GetAll",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\04_Tasks_UpdateValid.bru"
+        },
+        "request": {
+          "method": "PUT",
+          "url": "http://localhost:3000/api/tasks/47346fb7-6211-47c2-9998-1737a5c1eb21",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"title\": \"Bruno task - updated\",\n  \"completed\": true\n}"
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "132",
+            "etag": "W/\"84-OV4Hzky+HN0MkO1c/u0CKuLDkD4\"",
+            "date": "Mon, 18 May 2026 08:39:06 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "id": "47346fb7-6211-47c2-9998-1737a5c1eb21",
+            "title": "Bruno task - updated",
+            "completed": true,
+            "createdAt": "2026-05-18T08:39:05.771Z"
+          },
+          "url": "http://localhost/api/tasks/47346fb7-6211-47c2-9998-1737a5c1eb21",
+          "responseTime": 13,
+          "duration": 13,
+          "size": 132
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "igqxqiO-h-53E5n3vDuK5"
+          },
+          {
+            "description": "response should contain updated task",
+            "status": "pass",
+            "uid": "oSJOadTaPPtXj_1tkiiId"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1194232,
+        "name": "Tasks - PUT /api/tasks/:id valid",
+        "path": "Postive\\04_Tasks_UpdateValid",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\05_Tasks_DeleteValid.bru"
+        },
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:3000/api/tasks/47346fb7-6211-47c2-9998-1737a5c1eb21",
+          "headers": {
+            "content-type": null
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "132",
+            "etag": "W/\"84-OV4Hzky+HN0MkO1c/u0CKuLDkD4\"",
+            "date": "Mon, 18 May 2026 08:39:06 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "id": "47346fb7-6211-47c2-9998-1737a5c1eb21",
+            "title": "Bruno task - updated",
+            "completed": true,
+            "createdAt": "2026-05-18T08:39:05.771Z"
+          },
+          "url": "http://localhost/api/tasks/47346fb7-6211-47c2-9998-1737a5c1eb21",
+          "responseTime": 9,
+          "duration": 9,
+          "size": 132
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "RFB-g8R8Q2j1UYbrjy4lZ"
+          },
+          {
+            "description": "response should contain deleted task",
+            "status": "pass",
+            "uid": "QEM0iB7ZFfiT-WV5eYFvJ"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1604142,
+        "name": "Tasks - DELETE /api/tasks/:id valid",
+        "path": "Postive\\05_Tasks_DeleteValid",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\06_Menu_Get.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:3000/api/menu",
+          "headers": {
+            "content-type": null
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "1125",
+            "etag": "W/\"465-z+YI70Nexy7cqDHwx8iYNR9zJU8\"",
+            "date": "Mon, 18 May 2026 08:39:06 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "North Indian": [
+              {
+                "id": "ni-1",
+                "name": "Butter Chicken",
+                "cuisine": "North Indian",
+                "price": 320
+              },
+              {
+                "id": "ni-2",
+                "name": "Paneer Tikka",
+                "cuisine": "North Indian",
+                "price": 260
+              },
+              {
+                "id": "ni-3",
+                "name": "Dal Makhani",
+                "cuisine": "North Indian",
+                "price": 220
+              },
+              {
+                "id": "ni-4",
+                "name": "Naan Basket",
+                "cuisine": "North Indian",
+                "price": 140
+              },
+              {
+                "id": "ni-5",
+                "name": "Chole Bhature",
+                "cuisine": "North Indian",
+                "price": 200
+              }
+            ],
+            "South Indian": [
+              {
+                "id": "si-1",
+                "name": "Masala Dosa",
+                "cuisine": "South Indian",
+                "price": 180
+              },
+              {
+                "id": "si-2",
+                "name": "Idli Sambar",
+                "cuisine": "South Indian",
+                "price": 140
+              },
+              {
+                "id": "si-3",
+                "name": "Medu Vada",
+                "cuisine": "South Indian",
+                "price": 150
+              },
+              {
+                "id": "si-4",
+                "name": "Lemon Rice",
+                "cuisine": "South Indian",
+                "price": 170
+              },
+              {
+                "id": "si-5",
+                "name": "Curd Rice",
+                "cuisine": "South Indian",
+                "price": 130
+              }
+            ],
+            "Chinese": [
+              {
+                "id": "ch-1",
+                "name": "Veg Hakka Noodles",
+                "cuisine": "Chinese",
+                "price": 210
+              },
+              {
+                "id": "ch-2",
+                "name": "Chilli Paneer",
+                "cuisine": "Chinese",
+                "price": 250
+              },
+              {
+                "id": "ch-3",
+                "name": "Schezwan Fried Rice",
+                "cuisine": "Chinese",
+                "price": 230
+              },
+              {
+                "id": "ch-4",
+                "name": "Spring Rolls",
+                "cuisine": "Chinese",
+                "price": 190
+              },
+              {
+                "id": "ch-5",
+                "name": "Manchurian Gravy",
+                "cuisine": "Chinese",
+                "price": 240
+              }
+            ]
+          },
+          "url": "http://localhost/api/menu",
+          "responseTime": 4,
+          "duration": 4,
+          "size": 1125
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "S4XRrcDvZiqVPFd_KMIGd"
+          },
+          {
+            "description": "menu should be grouped object",
+            "status": "pass",
+            "uid": "J6BfC5Se0-8HMrFaYO5-u"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1159191,
+        "name": "Menu - GET /api/menu",
+        "path": "Postive\\06_Menu_Get",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\07_Orders_CreateValid.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/orders",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"address\": {\n    \"flatHomeDetails\": \"221B MG Road\",\n    \"area\": \"Indiranagar\",\n    \"landmark\": \"Near Metro\",\n    \"pinCode\": \"560038\",\n    \"city\": \"Bengaluru\",\n    \"state\": \"Karnataka\"\n  },\n  \"items\": [\n    {\n      \"itemId\": \"ni-1\",\n      \"quantity\": 1\n    },\n    {\n      \"itemId\": \"ch-2\",\n      \"quantity\": 2\n    }\n  ]\n}"
+        },
+        "response": {
+          "status": 201,
+          "statusText": "Created",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "420",
+            "etag": "W/\"1a4-XpU4OswtxpRzaV1ihQTHeuhERVI\"",
+            "date": "Mon, 18 May 2026 08:39:06 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "orderId": "19405",
+            "address": {
+              "flatHomeDetails": "221B MG Road",
+              "area": "Indiranagar",
+              "landmark": "Near Metro",
+              "pinCode": "560038",
+              "city": "Bengaluru",
+              "state": "Karnataka"
+            },
+            "items": [
+              {
+                "itemId": "ni-1",
+                "name": "Butter Chicken",
+                "price": 320,
+                "quantity": 1,
+                "lineTotal": 320
+              },
+              {
+                "itemId": "ch-2",
+                "name": "Chilli Paneer",
+                "price": 250,
+                "quantity": 2,
+                "lineTotal": 500
+              }
+            ],
+            "totalPrice": 820,
+            "status": "In process",
+            "createdAt": "2026-05-18T08:39:06.525Z"
+          },
+          "url": "http://localhost/api/orders",
+          "responseTime": 9,
+          "duration": 9,
+          "size": 420
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 201",
+            "status": "pass",
+            "uid": "6_45LDuI-7razoHvKx_mj"
+          },
+          {
+            "description": "response should include created order",
+            "status": "pass",
+            "uid": "gMyfGriwvInGVc27GnyUK"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1254393,
+        "name": "Orders - POST /api/orders valid",
+        "path": "Postive\\07_Orders_CreateValid",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\08_Orders_TrackValid.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:3000/api/orders/19405",
+          "headers": {
+            "content-type": null
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "420",
+            "etag": "W/\"1a4-XpU4OswtxpRzaV1ihQTHeuhERVI\"",
+            "date": "Mon, 18 May 2026 08:39:06 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "orderId": "19405",
+            "address": {
+              "flatHomeDetails": "221B MG Road",
+              "area": "Indiranagar",
+              "landmark": "Near Metro",
+              "pinCode": "560038",
+              "city": "Bengaluru",
+              "state": "Karnataka"
+            },
+            "items": [
+              {
+                "itemId": "ni-1",
+                "name": "Butter Chicken",
+                "price": 320,
+                "quantity": 1,
+                "lineTotal": 320
+              },
+              {
+                "itemId": "ch-2",
+                "name": "Chilli Paneer",
+                "price": 250,
+                "quantity": 2,
+                "lineTotal": 500
+              }
+            ],
+            "totalPrice": 820,
+            "status": "In process",
+            "createdAt": "2026-05-18T08:39:06.525Z"
+          },
+          "url": "http://localhost/api/orders/19405",
+          "responseTime": 8,
+          "duration": 8,
+          "size": 420
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "ofW-qKpyz0y8ZwcgumAQ6"
+          },
+          {
+            "description": "response should match requested order id",
+            "status": "pass",
+            "uid": "10sBmVwlX0FbExMBUNpar"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1586026,
+        "name": "Orders - GET /api/orders/:orderId valid",
+        "path": "Postive\\08_Orders_TrackValid",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\09_Manager_LoginValid.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/manager/login",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"username\": \"Admin\",\n  \"password\": \"Admin\"\n}"
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "set-cookie": [
+              "managerToken=990ff883-1b3e-4bf7-ba05-fd98d8722ef7; Path=/; HttpOnly; SameSite=Lax"
+            ],
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "30",
+            "etag": "W/\"1e-DOWvfMhj05v4eN+mg6AlHJrIPp8\"",
+            "date": "Mon, 18 May 2026 08:39:06 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "Login successful"
+          },
+          "url": "http://localhost/api/manager/login",
+          "responseTime": 4,
+          "duration": 4,
+          "size": 30
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "jA5zSClmAyktDNIvC2Is5"
+          },
+          {
+            "description": "response should confirm login",
+            "status": "pass",
+            "uid": "LX5m0mzwlVTqKE5xF8sYa"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1174669,
+        "name": "Manager - POST /api/manager/login valid",
+        "path": "Postive\\09_Manager_LoginValid",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\10_Manager_SessionActive.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:3000/api/manager/session",
+          "headers": {
+            "content-type": null,
+            "Cookie": "********"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "15",
+            "etag": "W/\"f-1F3GoBzBzcnZm0HS7xb3oEK50oQ\"",
+            "date": "Mon, 18 May 2026 08:39:06 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "active": true
+          },
+          "url": "http://localhost/api/manager/session",
+          "responseTime": 4,
+          "duration": 4,
+          "size": 15
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "Bj2NoSkaFp6MsJADm_T6O"
+          },
+          {
+            "description": "session should be active",
+            "status": "pass",
+            "uid": "CjJshz4etvRR5OzxnAej-"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.0912169,
+        "name": "Manager - GET /api/manager/session active",
+        "path": "Postive\\10_Manager_SessionActive",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\11_Manager_OrdersAuthorized.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:3000/api/manager/orders",
+          "headers": {
+            "content-type": null,
+            "Cookie": "********"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "3434",
+            "etag": "W/\"d6a-RKY6CUen71mfPr311L/5JN9ZBI8\"",
+            "date": "Mon, 18 May 2026 08:39:07 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": [
+            {
+              "orderId": "19405",
+              "address": {
+                "flatHomeDetails": "221B MG Road",
+                "area": "Indiranagar",
+                "landmark": "Near Metro",
+                "pinCode": "560038",
+                "city": "Bengaluru",
+                "state": "Karnataka"
+              },
+              "items": [
+                {
+                  "itemId": "ni-1",
+                  "name": "Butter Chicken",
+                  "price": 320,
+                  "quantity": 1,
+                  "lineTotal": 320
+                },
+                {
+                  "itemId": "ch-2",
+                  "name": "Chilli Paneer",
+                  "price": 250,
+                  "quantity": 2,
+                  "lineTotal": 500
+                }
+              ],
+              "totalPrice": 820,
+              "status": "In process",
+              "createdAt": "2026-05-18T08:39:06.525Z"
+            },
+            {
+              "orderId": "90479",
+              "address": {
+                "flatHomeDetails": "6",
+                "area": "sdafd",
+                "landmark": "dsfds",
+                "pinCode": "411000",
+                "city": "Pune",
+                "state": "Maharashtra"
+              },
+              "items": [
+                {
+                  "itemId": "ni-1",
+                  "name": "Butter Chicken",
+                  "price": 320,
+                  "quantity": 1,
+                  "lineTotal": 320
+                }
+              ],
+              "totalPrice": 320,
+              "status": "Delivered",
+              "createdAt": "2026-04-16T11:25:56.084Z",
+              "deliveredAt": "2026-04-16T11:56:49.242Z"
+            },
+            {
+              "orderId": "15911",
+              "address": {
+                "flatHomeDetails": "5",
+                "area": "sdafd",
+                "landmark": "dsfds",
+                "pinCode": "411000",
+                "city": "Pune",
+                "state": "Maharashtra"
+              },
+              "items": [
+                {
+                  "itemId": "ni-1",
+                  "name": "Butter Chicken",
+                  "price": 320,
+                  "quantity": 1,
+                  "lineTotal": 320
+                }
+              ],
+              "totalPrice": 320,
+              "status": "Delivered",
+              "createdAt": "2026-04-14T06:20:47.702Z",
+              "deliveredAt": "2026-04-14T06:51:15.059Z"
+            },
+            {
+              "orderId": "39825",
+              "address": {
+                "flatHomeDetails": "4",
+                "area": "sdafd",
+                "landmark": "dsfds",
+                "pinCode": "411000",
+                "city": "Pune",
+                "state": "Maharashtra"
+              },
+              "items": [
+                {
+                  "itemId": "ch-4",
+                  "name": "Spring Rolls",
+                  "price": 190,
+                  "quantity": 1,
+                  "lineTotal": 190
+                }
+              ],
+              "totalPrice": 190,
+              "status": "Delivered",
+              "createdAt": "2026-04-11T03:14:55.247Z",
+              "deliveredAt": "2026-04-11T10:18:47.609Z"
+            },
+            {
+              "orderId": "72350",
+              "address": {
+                "flatHomeDetails": "3",
+                "area": "test",
+                "landmark": "test",
+                "pinCode": "411057",
+                "city": "Pune",
+                "state": "Maharashtra"
+              },
+              "items": [
+                {
+                  "itemId": "si-4",
+                  "name": "Lemon Rice",
+                  "price": 170,
+                  "quantity": 1,
+                  "lineTotal": 170
+                }
+              ],
+              "totalPrice": 170,
+              "status": "Delivered",
+              "createdAt": "2026-04-11T02:49:08.910Z",
+              "deliveredAt": "2026-04-11T10:18:47.609Z"
+            },
+            {
+              "orderId": "69052",
+              "address": {
+                "flatHomeDetails": "2",
+                "area": "test",
+                "landmark": "test",
+                "pinCode": "411057",
+                "city": "Pune",
+                "state": "Maharashtra"
+              },
+              "items": [
+                {
+                  "itemId": "si-2",
+                  "name": "Idli Sambar",
+                  "price": 140,
+                  "quantity": 1,
+                  "lineTotal": 140
+                }
+              ],
+              "totalPrice": 140,
+              "status": "Delivered",
+              "createdAt": "2026-04-11T02:46:59.576Z",
+              "deliveredAt": "2026-04-11T10:18:47.609Z"
+            },
+            {
+              "orderId": "38899",
+              "address": {
+                "flatHomeDetails": "1",
+                "area": "test",
+                "landmark": "test",
+                "pinCode": "411057",
+                "city": "Pune",
+                "state": "Maharashtra"
+              },
+              "items": [
+                {
+                  "itemId": "ni-1",
+                  "name": "Butter Chicken",
+                  "price": 320,
+                  "quantity": 1,
+                  "lineTotal": 320
+                },
+                {
+                  "itemId": "si-1",
+                  "name": "Masala Dosa",
+                  "price": 180,
+                  "quantity": 1,
+                  "lineTotal": 180
+                },
+                {
+                  "itemId": "ch-1",
+                  "name": "Veg Hakka Noodles",
+                  "price": 210,
+                  "quantity": 1,
+                  "lineTotal": 210
+                }
+              ],
+              "totalPrice": 710,
+              "status": "Delivered",
+              "createdAt": "2026-04-11T02:42:30.018Z",
+              "deliveredAt": "2026-04-11T03:14:05.743Z"
+            },
+            {
+              "orderId": "48396",
+              "address": {
+                "flatHomeDetails": "Flat 101",
+                "area": "Indiranagar",
+                "landmark": "Near Metro",
+                "pinCode": "560038",
+                "city": "Bengaluru",
+                "state": "Karnataka"
+              },
+              "items": [
+                {
+                  "itemId": "ni-1",
+                  "name": "Butter Chicken",
+                  "price": 320,
+                  "quantity": 1,
+                  "lineTotal": 320
+                }
+              ],
+              "totalPrice": 320,
+              "status": "Delivered",
+              "createdAt": "2026-04-11T02:21:41.005Z",
+              "deliveredAt": "2026-04-11T02:52:00.523Z"
+            },
+            {
+              "orderId": "812af0e9-b4b1-4f8f-8f2d-24059e027d47",
+              "address": "aSDdas",
+              "items": [
+                {
+                  "itemId": "ni-1",
+                  "name": "Butter Chicken",
+                  "price": 320,
+                  "quantity": 1,
+                  "lineTotal": 320
+                },
+                {
+                  "itemId": "ni-2",
+                  "name": "Paneer Tikka",
+                  "price": 260,
+                  "quantity": 2,
+                  "lineTotal": 520
+                }
+              ],
+              "totalPrice": 840,
+              "status": "Delivered",
+              "createdAt": "2026-04-11T02:11:53.331Z",
+              "deliveredAt": "2026-04-11T02:42:00.418Z"
+            }
+          ],
+          "url": "http://localhost/api/manager/orders",
+          "responseTime": 20,
+          "duration": 20,
+          "size": 3434
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "LsjiQfiAhpGo7y8GQMZOX"
+          },
+          {
+            "description": "response should be an array",
+            "status": "pass",
+            "uid": "g23PLa3FMan6zHfa8BYSL"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1418981,
+        "name": "Manager - GET /api/manager/orders authorized",
+        "path": "Postive\\11_Manager_OrdersAuthorized",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\12_Manager_Logout.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:3000/api/manager/logout",
+          "headers": {
+            "content-type": null,
+            "Cookie": "********"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "set-cookie": [
+              "managerToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+            ],
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "24",
+            "etag": "W/\"18-ez3HU6ztP+x97ArcQd0fxpuaOt0\"",
+            "date": "Mon, 18 May 2026 08:39:07 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "message": "Logged out"
+          },
+          "url": "http://localhost/api/manager/logout",
+          "responseTime": 4,
+          "duration": 4,
+          "size": 24
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "9V4UCmzoOkSISaPBMBQ1p"
+          },
+          {
+            "description": "response should confirm logout",
+            "status": "pass",
+            "uid": "UC5zoItTV7b-QRdJf7Hxj"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1277219,
+        "name": "Manager - POST /api/manager/logout",
+        "path": "Postive\\12_Manager_Logout",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Postive\\13_Manager_SessionInactiveAfterLogout.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:3000/api/manager/session",
+          "headers": {
+            "content-type": null
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "x-powered-by": "Express",
+            "vary": "Origin",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "16",
+            "etag": "W/\"10-iZ1Wee3XJp8Edii8tnDHQrctT0c\"",
+            "date": "Mon, 18 May 2026 08:39:07 GMT",
+            "connection": "keep-alive",
+            "keep-alive": "timeout=5"
+          },
+          "data": {
+            "active": false
+          },
+          "url": "http://localhost/api/manager/session",
+          "responseTime": 3,
+          "duration": 3,
+          "size": 16
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "status should be 200",
+            "status": "pass",
+            "uid": "-y9Idmzob-4rkh_gsfmTl"
+          },
+          {
+            "description": "session should be inactive",
+            "status": "pass",
+            "uid": "WNPe6XkhAWvJy1pzcRG6i"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1032524,
+        "name": "Manager - GET /api/manager/session inactive after logout",
+        "path": "Postive\\13_Manager_SessionInactiveAfterLogout",
+        "iterationIndex": 0
+      }
+    ],
+    "summary": {
+      "totalRequests": 27,
+      "passedRequests": 27,
+      "failedRequests": 0,
+      "errorRequests": 0,
+      "skippedRequests": 0,
+      "totalAssertions": 0,
+      "passedAssertions": 0,
+      "failedAssertions": 0,
+      "totalTests": 53,
+      "passedTests": 53,
+      "failedTests": 0,
+      "totalPreRequestTests": 0,
+      "passedPreRequestTests": 0,
+      "failedPreRequestTests": 0,
+      "totalPostResponseTests": 0,
+      "passedPostResponseTests": 0,
+      "failedPostResponseTests": 0
+    }
+  }
+]

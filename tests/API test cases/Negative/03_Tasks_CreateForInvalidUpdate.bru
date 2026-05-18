@@ -1,0 +1,29 @@
+meta {
+  name: Tasks - create task for invalid update check
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/tasks
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Temp task for invalid update",
+    "completed": false
+  }
+}
+
+tests {
+  test("status should be 201", function() {
+    expect(res.getStatus()).to.equal(201);
+  });
+
+  test("capture temporary task id", function() {
+    const body = res.getBody();
+    bru.setVar("invalidUpdateTaskId", body.id);
+  });
+}

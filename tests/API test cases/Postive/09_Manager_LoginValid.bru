@@ -1,0 +1,29 @@
+meta {
+  name: Manager - POST /api/manager/login valid
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/api/manager/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "{{managerUsername}}",
+    "password": "{{managerPassword}}"
+  }
+}
+
+tests {
+  test("status should be 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+
+  test("response should confirm login", function() {
+    const body = res.getBody();
+    expect(body.message).to.equal("Login successful");
+  });
+}

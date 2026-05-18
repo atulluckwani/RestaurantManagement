@@ -1,0 +1,29 @@
+meta {
+  name: Tasks - PUT /api/tasks/:id not found
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/api/tasks/00000000-0000-0000-0000-000000000000
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Does not matter",
+    "completed": true
+  }
+}
+
+tests {
+  test("status should be 404", function() {
+    expect(res.getStatus()).to.equal(404);
+  });
+
+  test("error message should match", function() {
+    const body = res.getBody();
+    expect(body.message).to.equal("Task not found");
+  });
+}

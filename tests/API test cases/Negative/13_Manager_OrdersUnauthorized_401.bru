@@ -1,0 +1,22 @@
+meta {
+  name: Manager - GET /api/manager/orders unauthorized
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{baseUrl}}/api/manager/orders
+  body: none
+  auth: none
+}
+
+tests {
+  test("status should be 401", function() {
+    expect(res.getStatus()).to.equal(401);
+  });
+
+  test("error message should match", function() {
+    const body = res.getBody();
+    expect(body.message).to.equal("Unauthorized manager access");
+  });
+}

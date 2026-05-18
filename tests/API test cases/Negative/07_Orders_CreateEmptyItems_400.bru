@@ -1,0 +1,36 @@
+meta {
+  name: Orders - POST /api/orders empty items
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/api/orders
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "address": {
+      "flatHomeDetails": "221B MG Road",
+      "area": "Indiranagar",
+      "landmark": "Near Metro",
+      "pinCode": "560038",
+      "city": "Bengaluru",
+      "state": "Karnataka"
+    },
+    "items": []
+  }
+}
+
+tests {
+  test("status should be 400", function() {
+    expect(res.getStatus()).to.equal(400);
+  });
+
+  test("error message should match", function() {
+    const body = res.getBody();
+    expect(body.message).to.equal("At least one cart item is required");
+  });
+}

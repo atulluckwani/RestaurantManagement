@@ -1,0 +1,48 @@
+meta {
+  name: Orders - POST /api/orders valid
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/api/orders
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "address": {
+      "flatHomeDetails": "221B MG Road",
+      "area": "Indiranagar",
+      "landmark": "Near Metro",
+      "pinCode": "560038",
+      "city": "Bengaluru",
+      "state": "Karnataka"
+    },
+    "items": [
+      {
+        "itemId": "ni-1",
+        "quantity": 1
+      },
+      {
+        "itemId": "ch-2",
+        "quantity": 2
+      }
+    ]
+  }
+}
+
+tests {
+  test("status should be 201", function() {
+    expect(res.getStatus()).to.equal(201);
+  });
+
+  test("response should include created order", function() {
+    const body = res.getBody();
+    expect(body.orderId).to.be.a("string");
+    expect(body.status).to.equal("In process");
+    expect(Array.isArray(body.items)).to.equal(true);
+    bru.setVar("orderId", body.orderId);
+  });
+}

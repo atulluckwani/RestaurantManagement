@@ -1,0 +1,41 @@
+meta {
+  name: Orders - POST /api/orders invalid address
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/api/orders
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "address": {
+      "flatHomeDetails": "",
+      "area": "Indiranagar",
+      "landmark": "Near Metro",
+      "pinCode": "123",
+      "city": "Bengaluru",
+      "state": "InvalidState"
+    },
+    "items": [
+      {
+        "itemId": "ni-1",
+        "quantity": 1
+      }
+    ]
+  }
+}
+
+tests {
+  test("status should be 400", function() {
+    expect(res.getStatus()).to.equal(400);
+  });
+
+  test("error message should match", function() {
+    const body = res.getBody();
+    expect(body.message).to.equal("Valid delivery address is required");
+  });
+}

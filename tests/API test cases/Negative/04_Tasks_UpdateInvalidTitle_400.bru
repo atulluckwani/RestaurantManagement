@@ -1,0 +1,29 @@
+meta {
+  name: Tasks - PUT /api/tasks/:id invalid title
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/tasks/{{invalidUpdateTaskId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "",
+    "completed": true
+  }
+}
+
+tests {
+  test("status should be 400", function() {
+    expect(res.getStatus()).to.equal(400);
+  });
+
+  test("error message should match", function() {
+    const body = res.getBody();
+    expect(body.message).to.equal("title must be a non-empty string");
+  });
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Manager - GET /api/manager/orders authorized
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/api/manager/orders
+  body: none
+  auth: none
+}
+
+tests {
+  test("status should be 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+
+  test("response should be an array", function() {
+    const body = res.getBody();
+    expect(Array.isArray(body)).to.equal(true);
+  });
+}

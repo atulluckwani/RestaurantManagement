@@ -1,0 +1,22 @@
+meta {
+  name: Manager - GET /api/manager/session inactive
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{baseUrl}}/api/manager/session
+  body: none
+  auth: none
+}
+
+tests {
+  test("status should be 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+
+  test("session should be inactive", function() {
+    const body = res.getBody();
+    expect(body.active).to.equal(false);
+  });
+}

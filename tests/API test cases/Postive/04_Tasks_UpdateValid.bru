@@ -1,0 +1,31 @@
+meta {
+  name: Tasks - PUT /api/tasks/:id valid
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/tasks/{{taskId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Bruno task - updated",
+    "completed": true
+  }
+}
+
+tests {
+  test("status should be 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+
+  test("response should contain updated task", function() {
+    const body = res.getBody();
+    expect(body.id).to.equal(bru.getVar("taskId"));
+    expect(body.title).to.equal("Bruno task - updated");
+    expect(body.completed).to.equal(true);
+  });
+}
